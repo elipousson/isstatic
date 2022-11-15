@@ -1,0 +1,56 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# isstatic
+
+<!-- badges: start -->
+
+[![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![License:
+CC0](https://img.shields.io/badge/license-CC0-brightgreen.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+<!-- badges: end -->
+
+The goal of isstatic is to provide a convenient set of static functions
+for checking object class inheritance, regex pattern matching,
+extracting attributes, and basic type conversion.
+
+I’ve used and reused these functions across a number of different
+packages so using staticimports is also intended as a way to keep those
+functions standardized across projects. This package is inspired by the
+[stringstatic](https://github.com/rossellhayes/stringstatic/) package by
+Alex Rossell Hayes.
+
+## Installation
+
+You can install the development version of isstatic like so:
+
+``` r
+pak::pkg_install("elipousson/isstatic")
+```
+
+## Usage
+
+To import functions from `isstatic` into your package, put a comment
+block starting with `# @staticimports pkg:isstatic` in one of your R
+source files.
+
+For example, your `utils.R` file may have this at the top:
+
+    # @staticimports pkg:isstatic
+    #  is_sf is_bbox is_url
+
+`pkg:isstatic` means you will import functions from the `stringstatic`
+package. You can find many other useful functions in
+[`pkg:staticimports`](https://github.com/wch/staticimports).
+
+Subsequent lines list the objects to import from the package. In this
+case, they are `is_sf()`, `is_bbox()` and `is_url()`.
+
+To perform the import, run:
+
+``` r
+staticimports::import()
+```
+
+By default, this will write the functions to an `R/staticimports.R` file
+in your project.
