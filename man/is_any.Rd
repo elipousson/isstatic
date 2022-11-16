@@ -2,7 +2,7 @@
 % Please edit documentation in R/is_any.R
 \name{is_any}
 \alias{is_any}
-\title{Is any item in a list or vector return TRUE from a predicate function?}
+\title{Do any items in a list or vector return TRUE from a predicate function?}
 \usage{
 is_any(x, FUN)
 }
@@ -12,5 +12,5 @@ is_any(x, FUN)
 \item{FUN}{Function passed to FUN parameter of \code{\link[=vapply]{vapply()}}.}
 }
 \description{
-Is any item in a list or vector return TRUE from a predicate function?
+Do any items in a list or vector return TRUE from a predicate function?
 }

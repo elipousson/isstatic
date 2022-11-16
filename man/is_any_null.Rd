@@ -2,7 +2,7 @@
 % Please edit documentation in R/is_any.R
 \name{is_any_null}
 \alias{is_any_null}
-\title{Is any item in a list or vector NULL?}
+\title{Is any item in a list or vector a NULL value?}
 \usage{
 is_any_null(x)
 }
@@ -10,5 +10,5 @@ is_any_null(x)
 \item{x}{A list or vector to check.}
 }
 \description{
-Is any item in a list or vector NULL?
+Is any item in a list or vector a NULL value?
 }

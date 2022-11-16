@@ -2,7 +2,7 @@
 % Please edit documentation in R/is_any.R
 \name{is_any_na}
 \alias{is_any_na}
-\title{Check if any item in a list or vector is NA}
+\title{Is any item in a list or vector a NA value?}
 \usage{
 is_any_na(x)
 }
@@ -10,5 +10,5 @@ is_any_na(x)
 \item{x}{A list or vector to check.}
 }
 \description{
-Check if any item in a list or vector is NA
+Is any item in a list or vector a NA value?
 }
