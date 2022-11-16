@@ -8,6 +8,14 @@
 \description{
 Convenience functions for checking class inheritance, extracting attributes, and basic type conversion for working with sf, ggplot2, and other packages.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/elipousson/isstatic}
+  \item Report bugs at \url{https://github.com/elipousson/isstatic/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Eli Pousson \email{eli.pousson@gmail.com} (\href{https://orcid.org/0000-0001-8280-1706}{ORCID}) [copyright holder]
 
