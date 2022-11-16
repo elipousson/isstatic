@@ -4,10 +4,11 @@
 \alias{has_filetype}
 \title{Does string contain a filetype or the specified filetype?}
 \usage{
-has_filetype(string, filetype = NULL, ignore.case = FALSE)
+has_filetype(string = NULL, filetype = NULL, ignore.case = FALSE)
 }
 \arguments{
-\item{string}{String to be tested with or without filetype.}
+\item{string}{String to be tested with or without filetype. Defaults to
+\code{NULL}.}
 
 \item{filetype}{File type to test against. Optional.}
 
@@ -15,5 +16,6 @@ has_filetype(string, filetype = NULL, ignore.case = FALSE)
 \code{TRUE}, case is ignored.}
 }
 \description{
-Does string contain a filetype or the specified filetype?
+Check if string contains any filetype or the provided filetype. If string is
+\code{NULL}, returns \code{FALSE}.
 }
