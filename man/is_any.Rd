@@ -4,7 +4,7 @@
 \alias{is_any}
 \title{Do any items in a list or vector return TRUE from a predicate function?}
 \usage{
-is_any(x, FUN)
+is_any(x, FUN, ...)
 }
 \arguments{
 \item{x}{A list or vector passed to \code{\link[=vapply]{vapply()}}.}

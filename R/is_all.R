@@ -6,8 +6,8 @@
 #' @param x A list or vector passed to [vapply()].
 #' @param FUN Function passed to FUN parameter of [vapply()].
 #' @export
-is_all <- function(x, FUN) {
-  all(vapply(x, FUN, FUN.VALUE = TRUE))
+is_all <- function(x, FUN, ...) {
+  all(vapply(x, FUN, FUN.VALUE = TRUE, ...))
 }
 
 #' Are all items in a list or vector NULL values?

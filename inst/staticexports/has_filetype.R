@@ -1,4 +1,4 @@
-#' Does string contain a filetype or the specified filetype?
+#' Does string contain the specified file type or any file extension?
 #'
 #' Check if string contains any filetype or the provided filetype. If string is
 #' `NULL`, returns `FALSE`.
@@ -17,5 +17,6 @@ has_filetype <- function(string = NULL, filetype = NULL, ignore.case = FALSE) {
   if (is.null(filetype)) {
     filetype <- "[a-zA-Z0-9]+"
   }
-  grepl(paste0("\\.", filetype, "$(?!\\.)"), string, ignore.case, perl = TRUE)
+
+  is_filetype_path(string, filetype, ignore.case)
 }

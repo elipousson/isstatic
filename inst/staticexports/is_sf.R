@@ -33,6 +33,25 @@ is_bbox <- function(x) {
   inherits(x, "bbox")
 }
 
+#' Is this a sf, sfc, or bbox class object?
+#'
+#' @param x Object to be tested.
+#' @param ext If `TRUE`, return `TRUE` is x is a sf, sfc, or bbox object. If
+#'   `FALSE`, only check if x is an sf object. If ext is a character object, it
+#'   is passed to the what parameter of [inherits()] with sf.
+#' @noRd
+is_sf_ext <- function(x, ext = TRUE) {
+  if (is.logical(ext)) {
+    if (ext) {
+      ext <- c("sfc", "bbox")
+    } else {
+      ext <- NULL
+    }
+  }
+
+  inherits(x, c("sf", ext))
+}
+
 
 #' Is this a RasterLayer class object?
 #'

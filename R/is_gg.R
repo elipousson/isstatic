@@ -27,3 +27,11 @@ is_ggproto <- function(x) {
   inherits(x, "ggproto")
 }
 
+
+#' Is this a patchwork class object?
+#'
+#' @param x Object to be tested.
+#' @export
+is_patchwork <- function(x) {
+  inherits(x, "patchwork")
+}

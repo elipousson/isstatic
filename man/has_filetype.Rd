@@ -2,7 +2,7 @@
 % Please edit documentation in R/has_filetype.R
 \name{has_filetype}
 \alias{has_filetype}
-\title{Does string contain a filetype or the specified filetype?}
+\title{Does string contain the specified file type or any file extension?}
 \usage{
 has_filetype(string = NULL, filetype = NULL, ignore.case = FALSE)
 }
