@@ -8,18 +8,27 @@
 #'
 #' @param string String to be tested with or without filetype. Defaults to
 #'   `NULL`.
-#' @param filetype File type to test against. Optional.
+#' @param fileext File type to test against. Optional.
 #' @param ignore.case If `FALSE`, the pattern matching is case sensitive. If
 #'   `TRUE`, case is ignored.
 #' @export
-has_filetype <- function(string = NULL, filetype = NULL, ignore.case = FALSE) {
+has_fileext <- function(string = NULL, fileext = NULL, ignore.case = FALSE) {
   if (is.null(string)) {
     return(FALSE)
   }
 
-  if (is.null(filetype)) {
-    filetype <- "[a-zA-Z0-9]+"
+  if (is.null(fileext)) {
+    fileext <- "[a-zA-Z0-9]+"
   }
 
-  is_filetype_path(string, filetype, ignore.case)
+  is_fileext_path(string, fileext, ignore.case)
+}
+
+#' Does string contain the specified file type or any file extension?
+#'
+#' Alternate naming convention for [isstatic::has_fileext()]
+#'
+#' @export
+has_filetype <- function(string = NULL, filetype = NULL, ignore.case = FALSE) {
+  has_fileext(string, filetype, ignore.case)
 }
