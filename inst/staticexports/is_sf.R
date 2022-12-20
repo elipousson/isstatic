@@ -125,10 +125,12 @@ as_crs <- function(x, input = TRUE) {
   crs <- attributes(x)[["crs"]]
 
   if (is.na(crs)) {
-    NA
-  } else if (input) {
-    crs[["input"]]
-  } else {
-    crs
+    return(NA)
   }
+
+  if (input) {
+    return(crs[["input"]])
+  }
+
+  crs
 }
