@@ -1,6 +1,3 @@
-# `R/has_orientation.R` is imported from `inst/staticexports/has_orientation.R`. 
-# Please edit that file instead.
-
 #' What is the orientation of a numeric aspect ratio?
 #'
 #' @param x A numeric vector with an aspect ratio or a data.frame with width and
@@ -8,8 +5,8 @@
 #' @param tolerance Positive numeric value above or below 1 used to determine if
 #'   an aspect ratio is square, landscape, or portrait.
 #' @param cols Name of width and height column if x is a data.frame object.
-#' @export
-has_orientation <- function(x, tolerance = 0.1, cols = c("width", "height")) {
+#' @noRd
+as_orientation <- function(x, tolerance = 0.1, cols = c("width", "height")) {
   tolerance <- abs(tolerance)
 
   if (is.data.frame(x)) {
@@ -39,7 +36,7 @@ has_orientation <- function(x, tolerance = 0.1, cols = c("width", "height")) {
 
 # from staticimports
 # https://github.com/wch/staticimports/blob/main/inst/staticexports/purrr.R
-#' @export
+#' @noRd
 map_chr <- function(.x, .f, ...) {
   if (is.character(.f)) {
     vapply(.x, `[[`, .f, ..., FUN.VALUE = NA_character_)
