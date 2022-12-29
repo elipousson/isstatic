@@ -25,6 +25,15 @@ is_ggproto <- function(x) {
 }
 
 
+#' Is this a margin class object?
+#'
+#' @param x Object to be tested.
+#' @noRd
+is_margin <- function(x) {
+  inherits(x, "margin")
+}
+
+
 #' Is this a patchwork class object?
 #'
 #' @param x Object to be tested.
