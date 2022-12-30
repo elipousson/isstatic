@@ -10,9 +10,10 @@ as_sfc <- function(x) {
     return(x)
   }
 
-  if (!is_sf(x)) {
-    stop("as_sfc only supports sf objects")
-  }
+  check_if(
+    condition = is_sf(x),
+    "`as_sfc()` requires a <sf> object."
+  )
 
   x[[attributes(x)[["sf_column"]]]]
 }

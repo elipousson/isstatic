@@ -5,8 +5,8 @@
 #'
 #' @param x A data frame or another named object.
 #' @export
-is_named <- function (x) {
-  !is.null(names(x)) && !any("" %in% names(x))
+is_named <- function(x) {
+  !is.null(names(x)) && is_none_in("", names(x))
 }
 
 
@@ -20,7 +20,7 @@ has_all_names <- function(x, name) {
     return(FALSE)
   }
 
-  all(name %in% names(x), na.rm = TRUE)
+  all(hasName(x, name))
 }
 
 
@@ -34,5 +34,5 @@ has_any_names <- function(x, name) {
     return(FALSE)
   }
 
-  any(name %in% names(x), na.rm = TRUE)
+  any(hasName(x, name))
 }

@@ -42,11 +42,11 @@ is_bbox <- function(x) {
 #' @noRd
 is_sf_ext <- function(x, ext = TRUE) {
   if (is.logical(ext)) {
-    if (ext) {
-      ext <- c("sfc", "bbox")
-    } else {
-      ext <- NULL
+    if (!isTRUE(ext)) {
+      return(is_sf(x))
     }
+
+    ext <- c("sfc", "bbox")
   }
 
   inherits(x, c("sf", ext))
@@ -77,15 +77,12 @@ is_sp <- function(x) {
 #'
 #' @param x Object to be tested.
 #' @noRd
-is_lonlat <- function(x) {
-  if (inherits(x, c("sf", "sfc", "bbox"))) {
-    grepl(
-      as_crs(x),
-      c("EPSG:4326", "EPSG:4269")
-    )
-  } else {
-    FALSE
+is_lonlat <- function(x, crs = c("EPSG:4326", "EPSG:4269")) {
+  if (!inherits(x, c("sf", "sfc", "bbox"))) {
+    return(FALSE)
   }
+
+  is_any_in(as_crs(x), crs)
 }
 
 #' Do two sf, sfc, or bbox objects use the same coordinate reference system?
@@ -116,11 +113,10 @@ as_crs <- function(x, input = TRUE) {
     x <- as_sfc(x)
   }
 
-  if (!is_sfc(x) && !is_bbox(x)) {
-    stop(
-      "`as_crs()` only supports sf, sfc, and bbox objects."
-    )
-  }
+  check_if(
+    is_sfc(x) | is_bbox(x),
+    "`as_crs()` requires a <sf>, <sfc>, or <bbox> object."
+  )
 
   crs <- attributes(x)[["crs"]]
 
@@ -128,7 +124,7 @@ as_crs <- function(x, input = TRUE) {
     return(NA)
   }
 
-  if (input) {
+  if (isTRUE(input)) {
     return(crs[["input"]])
   }
 
