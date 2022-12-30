@@ -1,0 +1,70 @@
+# `R/checks.R` is imported from `inst/staticexports/checks.R`. 
+# Please edit that file instead.
+
+#' @export
+check_if <- function(condition, message = NULL, call = parent.frame()) {
+  if (isTRUE(condition)) {
+    return(invisible(NULL))
+  }
+
+  stop(
+    message,
+    call. = call
+  )
+}
+
+
+#' @export
+check_character <- function(x, call = parent.frame()) {
+  check_if(
+    condition = all(is.character(x[!is.na(x)])),
+    message = paste("`x` must be a <character> vector, not", class(x)),
+    call = call
+  )
+}
+
+
+#' @export
+check_numeric <- function(x, call = parent.frame()) {
+  check_if(
+    condition = all(is.numeric(x[!is.na(x)])),
+    message = paste("`x` must be a <numeric> vector, not", class(x)),
+    call = call
+  )
+}
+
+
+#' @export
+check_nchar <- function(x, n = 1, ..., call = parent.frame()) {
+  num_char <- unique(nchar(x[!is.na(x)], ...))
+
+  message <- num_char
+
+  if (length(num_char) > 1) {
+    message <- paste("a range from", min(num_char), "to", max(num_char))
+  }
+
+  message <- paste0(
+    "All objects in `x` must have ", n, plural_words(" character", n),
+    ", not ", message, "."
+    )
+
+  check_if(
+    condition = is.null(n) | all(n == num_char),
+    message = message,
+    call = call
+  )
+}
+
+
+#' @export
+check_name <- function(x, name = NULL, call = parent.frame()) {
+  check_if(
+    condition = has_all_names(x, name),
+    message = paste0(
+      "`x` must have ", plural_words("name", length(name), after = " "), name,
+      ", but ", combine_words(name[!(name %in% names(x))]), " are all missing."
+    ),
+    call = call
+  )
+}
