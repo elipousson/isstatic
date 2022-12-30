@@ -4,7 +4,7 @@
 \alias{is_lonlat}
 \title{Is this sf, sfc, or bbox class object in a geographic coordinate system?}
 \usage{
-is_lonlat(x)
+is_lonlat(x, crs = c("EPSG:4326", "EPSG:4269"))
 }
 \arguments{
 \item{x}{Object to be tested.}
