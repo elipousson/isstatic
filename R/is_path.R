@@ -7,7 +7,8 @@
 is_fileext_path <- function(x, fileext, ignore.case = TRUE) {
   grepl(
     paste0("\\.", paste0(fileext, collapse = "|"), "$(?!\\.)"),
-    x, ignore.case = ignore.case, perl = TRUE
+    x,
+    ignore.case = ignore.case, perl = TRUE
   )
 }
 
@@ -45,9 +46,9 @@ is_excel_path <- function(x, ignore.case = TRUE) {
 is_rdata_path <- function(x, ignore.case = TRUE) {
   any(
     c(
-    is_rda_path(x, ignore.case),
-    is_rds_path(x, ignore.case),
-    is_fileext_path(x, "RData", ignore.case)
+      is_rda_path(x, ignore.case),
+      is_rds_path(x, ignore.case),
+      is_fileext_path(x, "RData", ignore.case)
     )
   )
 }
