@@ -6,7 +6,7 @@
 \alias{isstatic-package}
 \title{isstatic: Dependency-Free Object Tests}
 \description{
-Convenience functions for checking class inheritance, extracting attributes, and basic type conversion for working with sf, ggplot2, and other packages.
+Convenience functions for checking class inheritance, extracting attributes, basic type conversion, and miscellaneous string manipulation. working with sf, ggplot2, and other packages.
 }
 \seealso{
 Useful links:
