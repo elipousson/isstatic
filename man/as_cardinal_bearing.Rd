@@ -2,7 +2,7 @@
 % Please edit documentation in R/as_cardinal_bearing.R
 \name{as_cardinal_bearing}
 \alias{as_cardinal_bearing}
-\title{What are the closest cardinal bearing to a numeric bearing value?}
+\title{Convert a numeric bearing value to the closest cardinal bearing}
 \usage{
 as_cardinal_bearing(x, winds = 8, cols = c("bearing", "cardinal_bearing"))
 }
@@ -21,5 +21,5 @@ A named numeric vector with cardinal bearings (and wind names) or a
 data.frame with an added column containing the cardinal bearings.
 }
 \description{
-What are the closest cardinal bearing to a numeric bearing value?
+Convert a numeric bearing value to the closest cardinal bearing
 }

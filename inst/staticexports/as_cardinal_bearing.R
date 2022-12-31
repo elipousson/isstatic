@@ -10,7 +10,7 @@ cardinal_bearings <-
   )
 
 
-#' What are the closest cardinal bearing to a numeric bearing value?
+#' Convert a numeric bearing value to the closest cardinal bearing
 #'
 #' @param x A numeric vector with degrees or a data.frame with column name
 #'   matching the first name in cols.
