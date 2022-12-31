@@ -8,6 +8,9 @@ as_integer(x, quiet = TRUE)
 }
 \arguments{
 \item{x}{object to be coerced or tested.}
+
+\item{quiet}{If \code{TRUE}, suppress warnings about creation of NA values through
+coercion of object types. Default to \code{TRUE}.}
 }
 \description{
 as.integer with option to suppress warnings for NA coercion

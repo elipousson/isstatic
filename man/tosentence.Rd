@@ -9,6 +9,10 @@
 \usage{
 tosentence(x)
 }
+\arguments{
+\item{x}{a character vector, or an object that can be coerced to character by
+\code{\link[=as.character]{as.character()}}.}
+}
 \description{
 Convert to a common sentence case
 }

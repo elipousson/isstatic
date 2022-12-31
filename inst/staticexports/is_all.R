@@ -2,6 +2,7 @@
 #'
 #' @param x A list or vector passed to [vapply()].
 #' @param FUN Function passed to FUN parameter of [vapply()].
+#' @inheritDotParams base::vapply
 #' @noRd
 is_all <- function(x, FUN, ...) {
   all(vapply(x, FUN, FUN.VALUE = TRUE, ...))

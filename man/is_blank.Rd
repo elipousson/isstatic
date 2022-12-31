@@ -21,10 +21,10 @@ Return \code{TRUE} if all elements of a character vector are blank (white
 spaces or empty strings).
 }
 \examples{
-xfun::is_blank("")
-xfun::is_blank("abc")
-xfun::is_blank(c("", "  ", "\n\t"))
-xfun::is_blank(c("", " ", "abc"))
+is_blank("")
+is_blank("abc")
+is_blank(c("", "  ", "\n\t"))
+is_blank(c("", " ", "abc"))
 }
 \author{
 Yihui Xie \email{xie@yihui.name}

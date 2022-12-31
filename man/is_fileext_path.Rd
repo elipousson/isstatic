@@ -6,6 +6,15 @@
 \usage{
 is_fileext_path(x, fileext, ignore.case = TRUE)
 }
+\arguments{
+\item{x}{A character vector to check.}
+
+\item{fileext}{A file extension (or multiple file extensions) to compare to
+x. Required.}
+
+\item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
+      sensitive} and if \code{TRUE}, case is ignored during matching.}
+}
 \description{
 Is this a file path or url ending in the specified file extension?
 }

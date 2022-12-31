@@ -10,7 +10,7 @@
 #'   integer column is used as the number that is converted based on the label
 #'   style. If x is not an integer or data.frame with an integer column, the
 #'   numbering is created based on [seq_along()].
-#' @param label Label style. Options include "arabic", "alph", "Alph", "alpha",
+#' @param labels Label style. Options include "arabic", "alph", "Alph", "alpha",
 #'   "Alpha", "roman", or "Roman".
 #' @param start Starting number or value. Letters are supported if label style
 #'   is "alph", "Alph", "alpha", or  "Alpha" and Roman numerals are supported if
@@ -27,8 +27,7 @@
 #'   the vector is assumed to be the column name from the data.frame to use as x
 #'   and the second item is used as the column name for the added column with
 #'   number labels.
-#' @param quiet If `TRUE`, suppress warnings about creation of NA values through
-#'   coercion of object types. Default to `TRUE`.
+#' @inheritParams as_integer
 #' @param call Default: [parent.frame()]. Passed to input checking functions
 #'   to improve error message traceback.
 #' @param pad,side If pad is not `NULL`, pass pad and side to [str_pad()] added

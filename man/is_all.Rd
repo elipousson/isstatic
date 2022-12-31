@@ -10,6 +10,20 @@ is_all(x, FUN, ...)
 \item{x}{A list or vector passed to \code{\link[=vapply]{vapply()}}.}
 
 \item{FUN}{Function passed to FUN parameter of \code{\link[=vapply]{vapply()}}.}
+
+\item{...}{
+  Arguments passed on to \code{\link[base:lapply]{base::vapply}}
+  \describe{
+    \item{\code{X}}{a vector (atomic or list) or an \code{\link[base]{expression}}
+    object.  Other objects (including classed objects) will be coerced
+    by \code{base::\link[base]{as.list}}.}
+    \item{\code{USE.NAMES}}{logical; if \code{TRUE} and if \code{X} is character,
+    use \code{X} as \code{\link[base]{names}} for the result unless it had names
+    already.  Since this argument follows \code{\dots} its name cannot
+    be abbreviated.}
+    \item{\code{FUN.VALUE}}{a (generalized) vector; a template for the return
+    value from FUN.  See \sQuote{Details}.}
+  }}
 }
 \description{
 Do all items in a list or vector return TRUE from a predicate function?

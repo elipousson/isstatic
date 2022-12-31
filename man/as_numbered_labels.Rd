@@ -23,6 +23,9 @@ integer column is used as the number that is converted based on the label
 style. If x is not an integer or data.frame with an integer column, the
 numbering is created based on \code{\link[=seq_along]{seq_along()}}.}
 
+\item{labels}{Label style. Options include "arabic", "alph", "Alph", "alpha",
+"Alpha", "roman", or "Roman".}
+
 \item{start}{Starting number or value. Letters are supported if label style
 is "alph", "Alph", "alpha", or  "Alpha" and Roman numerals are supported if
 label is "roman" or "Roman".}
@@ -49,9 +52,6 @@ coercion of object types. Default to \code{TRUE}.}
 
 \item{call}{Default: \code{\link[=parent.frame]{parent.frame()}}. Passed to input checking functions
 to improve error message traceback.}
-
-\item{label}{Label style. Options include "arabic", "alph", "Alph", "alpha",
-"Alpha", "roman", or "Roman".}
 }
 \value{
 \itemize{

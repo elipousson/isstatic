@@ -22,6 +22,8 @@ map_chr <- function(.x, .f, ...) {
 #'
 #' @source [Statistics Globe](https://statisticsglobe.com/r-capitalize-first-letter-of-character-string-containing-multiple-words)
 #'
+#' @param x a character vector, or an object that can be coerced to character by
+#'   [as.character()].
 #' @export
 tosentence <- function(x) {
   gsub("(^|[[:space:]])([[:alpha:]])", "\\1\\U\\2", x, perl = TRUE)
@@ -35,6 +37,13 @@ tosentence <- function(x) {
 #'
 #' @source Adapted from [xfun::is_blank()] in the
 #'   [xfun](https://yihui.org/xfun/) package.
+#'
+#' @examples
+#' is_blank("")
+#' is_blank("abc")
+#' is_blank(c("", "  ", "\n\t"))
+#' is_blank(c("", " ", "abc"))
+#' @export
 is_blank <- function(x) {
   all(grepl("^\\s*$", x))
 }

@@ -8,6 +8,9 @@ as_roman(x, quiet = TRUE)
 }
 \arguments{
 \item{x}{a numeric or character vector of arabic or roman numerals.}
+
+\item{quiet}{If \code{TRUE}, suppress warnings about creation of NA values through
+coercion of object types. Default to \code{TRUE}.}
 }
 \description{
 as.roman with option to suppress warnings for NA coercion

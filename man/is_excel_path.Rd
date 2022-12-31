@@ -6,6 +6,12 @@
 \usage{
 is_excel_path(x, ignore.case = TRUE)
 }
+\arguments{
+\item{x}{A character vector to check.}
+
+\item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
+      sensitive} and if \code{TRUE}, case is ignored during matching.}
+}
 \description{
 Is this a Excel file path or url?
 }
