@@ -60,6 +60,26 @@
 <dt>FUN</dt>
 <dd><p>Function passed to FUN parameter of <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">vapply()</a></code>.</p></dd>
 
+
+<dt>...</dt>
+<dd><p>Arguments passed on to <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">base::vapply</a></code></p><dl><dt><code>X</code></dt>
+<dd><p>a vector (atomic or list) or an <code><a href="https://rdrr.io/r/base/expression.html" class="external-link">expression</a></code>
+    object.  Other objects (including classed objects) will be coerced
+    by <code>base::<a href="https://rdrr.io/r/base/list.html" class="external-link">as.list</a></code>.</p></dd>
+
+    <dt><code>USE.NAMES</code></dt>
+<dd><p>logical; if <code>TRUE</code> and if <code>X</code> is character,
+    use <code>X</code> as <code><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></code> for the result unless it had names
+    already.  Since this argument follows <code>...</code> its name cannot
+    be abbreviated.</p></dd>
+
+    <dt><code>FUN.VALUE</code></dt>
+<dd><p>a (generalized) vector; a template for the return
+    value from FUN.  See ‘Details’.</p></dd>
+
+  
+</dl></dd>
+
 </dl></div>
 
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
