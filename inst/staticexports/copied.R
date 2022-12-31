@@ -1,12 +1,9 @@
-# Copied from staticimports
-# https://github.com/wch/staticimports/blob/main/inst/staticexports/operators.R
-#' @noRd
-`%||%` <- function(a, b) {
-  if (is.null(a)) b else a
-}
-
-# Copied from staticimports
-# https://github.com/wch/staticimports/blob/main/inst/staticexports/purrr.R
+#' Apply a function to each element of a vector.
+#'
+#' @author Winston Chang \email{winston@stdout.org}
+#'
+#' @source [purr-like functions](https://github.com/wch/staticimports/blob/main/inst/staticexports/purrr.R) in [staticimports](https://wch.github.io/staticimports/) package
+#
 #' @noRd
 map_chr <- function(.x, .f, ...) {
   if (is.character(.f)) {
@@ -16,17 +13,24 @@ map_chr <- function(.x, .f, ...) {
   }
 }
 
+#' Convert to a common sentence case
+#'
+#' @author Joachim Schork \email{info@joachimschork.com}
+#'
+#' @source [Statistics Globe](https://statisticsglobe.com/r-capitalize-first-letter-of-character-string-containing-multiple-words)
+#'
 #' @noRd
 tosentence <- function(x) {
-  # Copied from https://statisticsglobe.com/r-capitalize-first-letter-of-character-string-containing-multiple-words
-  gsub(
-    "(^|[[:space:]])([[:alpha:]])", "\\1\\U\\2",
-    x,
-    perl = TRUE
-  )
+  gsub("(^|[[:space:]])([[:alpha:]])", "\\1\\U\\2", x, perl = TRUE)
 }
 
-#' Copied from [knitr::combine_words()]
+#' Combine multiple words into a single string
+#'
+#' @author Yihui Xie \email{xie@yihui.name}
+#'   ([ORCID](https://orcid.org/0000-0003-0645-5666))
+#'
+#' @source Adapted from [knitr::combine_words()] in the
+#'   [knitr](https://yihui.org/knitr/) package.
 #'
 #' @inheritParams knitr::combine_words
 #' @noRd
