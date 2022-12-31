@@ -27,6 +27,19 @@ tosentence <- function(x) {
   gsub("(^|[[:space:]])([[:alpha:]])", "\\1\\U\\2", x, perl = TRUE)
 }
 
+
+#' @inherit xfun::is_blank
+#'
+#' @author Yihui Xie \email{xie@yihui.name}
+#'   ([ORCID](https://orcid.org/0000-0003-0645-5666))
+#'
+#' @source Adapted from [xfun::is_blank()] in the
+#'   [xfun](https://yihui.org/xfun/) package.
+is_blank <- function(x) {
+  all(grepl("^\\s*$", x))
+}
+
+
 #' Combine multiple words into a single string
 #'
 #' @author Yihui Xie \email{xie@yihui.name}
@@ -35,7 +48,8 @@ tosentence <- function(x) {
 #' @source Adapted from [knitr::combine_words()] in the
 #'   [knitr](https://yihui.org/knitr/) package.
 #'
-#' @inheritParams knitr::combine_words
+#' @inherit knitr::combine_words
+#' @returns A character string
 #' @export
 combine_words <- function(words,
                           sep = ", ",
@@ -44,6 +58,12 @@ combine_words <- function(words,
                           after = before,
                           oxford_comma = TRUE) {
   n <- length(words)
+
+  rs <- function (x) {
+    if (is.null(x))
+      x = as.character(x)
+    x
+  }
 
   if (n == 0) {
     return(words)
@@ -70,5 +90,5 @@ combine_words <- function(words,
     words <- words[-n]
   }
 
-  paste(words, collapse = sep)
+  rs(paste(words, collapse = sep))
 }

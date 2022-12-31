@@ -29,8 +29,30 @@ combine_words(
 \item{oxford_comma}{Whether to insert the separator between the last two
 elements in the list.}
 }
+\value{
+A character string
+}
 \description{
-Combine multiple words into a single string
+When a value from an inline R expression is a character vector of multiple
+elements, we may want to combine them into a phrase like \samp{a and b}, or
+\code{a, b, and c}. That is what this a helper function does.
+}
+\details{
+If the length of the input \code{words} is smaller than or equal to 1,
+\code{words} is returned. When \code{words} is of length 2, the first word
+and second word are combined using the \code{and} string, or if blank,
+\code{sep} if is used. When the length is greater than 2, \code{sep} is used
+to separate all words, and the \code{and} string is prepended to the last
+word.
+}
+\examples{
+combine_words("a")
+combine_words(c("a", "b"))
+combine_words(c("a", "b", "c"))
+combine_words(c("a", "b", "c"), sep = " / ", and = "")
+combine_words(c("a", "b", "c"), and = "")
+combine_words(c("a", "b", "c"), before = "\\"", after = "\\"")
+combine_words(c("a", "b", "c"), before = "\\"", after = "\\"", oxford_comma = FALSE)
 }
 \author{
 Yihui Xie \email{xie@yihui.name}
