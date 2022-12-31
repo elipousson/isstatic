@@ -12,6 +12,7 @@ Convenience functions for checking class inheritance, extracting attributes, bas
 Useful links:
 \itemize{
   \item \url{https://github.com/elipousson/isstatic}
+  \item \url{https://elipousson.github.io/isstatic/}
   \item Report bugs at \url{https://github.com/elipousson/isstatic/issues}
 }
 
