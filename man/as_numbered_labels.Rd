@@ -12,6 +12,7 @@ as_numbered_labels(
   base = 26,
   col = "num_label",
   quiet = TRUE,
+  pad = NULL,
   call = parent.frame()
 )
 }
@@ -42,8 +43,11 @@ number labels.}
 \item{quiet}{If \code{TRUE}, suppress warnings about creation of NA values through
 coercion of object types. Default to \code{TRUE}.}
 
+\item{pad}{If not \code{NULL} use pad as single padding character to ensure a
+consistent character width for all number labels.}
+
 \item{call}{Default: \code{\link[=parent.frame]{parent.frame()}}. Passed to input checking functions
-to improve error messages.}
+to improve error message traceback.}
 
 \item{label}{Label style. Options include "arabic", "alph", "Alph", "alpha",
 "Alpha", "roman", or "Roman".}

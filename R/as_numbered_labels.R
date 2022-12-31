@@ -27,7 +27,9 @@
 #' @param quiet If `TRUE`, suppress warnings about creation of NA values through
 #'   coercion of object types. Default to `TRUE`.
 #' @param call Default: [parent.frame()]. Passed to input checking functions
-#'   to improve error messages.
+#'   to improve error message traceback.
+#' @param pad If not `NULL` use pad as single padding character to ensure a
+#'   consistent character width for all number labels.
 #' @returns
 #' - If x is a vector, function returns numeric vector if labels is
 #'   "arabic" or a character vector otherwise.
@@ -42,6 +44,7 @@ as_numbered_labels <- function(x,
                                base = 26,
                                col = "num_label",
                                quiet = TRUE,
+                               pad = NULL,
                                call = parent.frame()) {
   if (is.data.frame(x)) {
     num_col <- col
@@ -98,6 +101,18 @@ as_numbered_labels <- function(x,
       "roman" = tolower(as_roman(x, quiet)),
       "Roman" = toupper(as_roman(x, quiet))
     )
+
+  if (!is.null(pad)) {
+    width <- max(nchar(num_labels))
+
+    num_labels <-
+      sapply(
+        num_labels,
+        function(x) {
+          paste0(rep(pad, max(0, width - nchar(x))), x)
+        }
+      )
+  }
 
   if (is.null(suffix)) {
     return(num_labels)
