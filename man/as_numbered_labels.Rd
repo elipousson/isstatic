@@ -2,7 +2,7 @@
 % Please edit documentation in R/as_numbered_labels.R
 \name{as_numbered_labels}
 \alias{as_numbered_labels}
-\title{Convert a numeric vector to a vector of numbered labels.}
+\title{Convert a numeric vector to a vector of numbered labels}
 \usage{
 as_numbered_labels(
   x,
@@ -10,9 +10,10 @@ as_numbered_labels(
   start = NULL,
   suffix = NULL,
   base = 26,
-  col = "num_label",
-  quiet = TRUE,
+  cols = "num_label",
   pad = NULL,
+  side = "left",
+  quiet = TRUE,
   call = parent.frame()
 )
 }
@@ -34,17 +35,17 @@ are supported. For example, if base is 3, alphabetical labels for numbers
 higher than 3 have the prior value prefixed so 3 would be "C" and 4 would
 be "AA". Defaults to 26 which converts 27 to "AA", 53 to "BA", etc.}
 
-\item{col}{Column name to use for added column for number labels when x is a
-data.frame. Defaults to "num_label". If col is length 2, the first item in
+\item{cols}{Column name to use for added column for number labels when x is a
+data.frame. Defaults to "num_label". If cols is length 2, the first item in
 the vector is assumed to be the column name from the data.frame to use as x
 and the second item is used as the column name for the added column with
 number labels.}
 
+\item{pad, side}{If pad is not \code{NULL}, pass pad and side to \code{\link[=str_pad]{str_pad()}} added
+from the \code{\link[stringstatic:str_pad]{stringstatic::str_pad()}} package.}
+
 \item{quiet}{If \code{TRUE}, suppress warnings about creation of NA values through
 coercion of object types. Default to \code{TRUE}.}
-
-\item{pad}{If not \code{NULL} use pad as single padding character to ensure a
-consistent character width for all number labels.}
 
 \item{call}{Default: \code{\link[=parent.frame]{parent.frame()}}. Passed to input checking functions
 to improve error message traceback.}
@@ -62,5 +63,6 @@ parameter.
 }
 }
 \description{
-Convert a numeric vector to a vector of numbered labels.
+This function allows the creation of numbered labels for a vector using a
+range of numbering styles.
 }

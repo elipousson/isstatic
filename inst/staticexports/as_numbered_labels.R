@@ -1,4 +1,7 @@
-#' Convert a numeric vector to a vector of numbered labels.
+#' Convert a numeric vector to a vector of numbered labels
+#'
+#' This function allows the creation of numbered labels for a vector using a
+#' range of numbering styles.
 #'
 #' @param x An integer or other vector or a data.frame. An integer vector or
 #'   integer column is used as the number that is converted based on the label
@@ -16,8 +19,8 @@
 #'   are supported. For example, if base is 3, alphabetical labels for numbers
 #'   higher than 3 have the prior value prefixed so 3 would be "C" and 4 would
 #'   be "AA". Defaults to 26 which converts 27 to "AA", 53 to "BA", etc.
-#' @param col Column name to use for added column for number labels when x is a
-#'   data.frame. Defaults to "num_label". If col is length 2, the first item in
+#' @param cols Column name to use for added column for number labels when x is a
+#'   data.frame. Defaults to "num_label". If cols is length 2, the first item in
 #'   the vector is assumed to be the column name from the data.frame to use as x
 #'   and the second item is used as the column name for the added column with
 #'   number labels.
@@ -25,8 +28,8 @@
 #'   coercion of object types. Default to `TRUE`.
 #' @param call Default: [parent.frame()]. Passed to input checking functions
 #'   to improve error message traceback.
-#' @param pad If not `NULL` use pad as single padding character to ensure a
-#'   consistent character width for all number labels.
+#' @param pad,side If pad is not `NULL`, pass pad and side to [str_pad()] added
+#'   from the [stringstatic::str_pad()] package.
 #' @returns
 #' - If x is a vector, function returns numeric vector if labels is
 #'   "arabic" or a character vector otherwise.
@@ -39,30 +42,25 @@ as_numbered_labels <- function(x,
                                start = NULL,
                                suffix = NULL,
                                base = 26,
-                               col = "num_label",
-                               quiet = TRUE,
+                               cols = "num_label",
                                pad = NULL,
+                               side = "left",
+                               quiet = TRUE,
                                call = parent.frame()) {
   if (is.data.frame(x)) {
-    num_col <- col
+    num_col <- cols
     x_col <- c(1:nrow(x))
 
-    if (length(col) == 2) {
-      num_col <- col[2]
-      check_name(x, col[1])
-      x_col <- x[, col[1]]
+    if (length(cols) == 2) {
+      num_col <- cols[2]
+      check_name(x, cols[1])
+      x_col <- x[, cols[1]]
     }
 
-    x[col, ] <- as_numbered_labels(
-      x_col,
-      labels,
-      start,
-      suffix,
-      base,
-      col,
-      quiet,
-      call
-    )
+    x[num_col, ] <-
+      as_numbered_labels(
+        x_col, labels, start, suffix, base, col, pad, side, quiet, call
+      )
 
     return(x)
   }
@@ -91,8 +89,14 @@ as_numbered_labels <- function(x,
   num_labels <-
     switch(labels,
       "arabic" = x,
-      "alph" = sapply(x, int_to_alpha, base = base, dict = letters, quiet = quiet),
-      "alpha" = sapply(x, int_to_alpha, base = base, dict = letters, quiet = quiet),
+      "alph" = sapply(x, int_to_alpha,
+        base = base,
+        dict = letters, quiet = quiet
+      ),
+      "alpha" = sapply(x, int_to_alpha,
+        base = base,
+        dict = letters, quiet = quiet
+      ),
       "Alph" = sapply(x, int_to_alpha, base = base, quiet = quiet),
       "Alpha" = sapply(x, int_to_alpha, base = base, quiet = quiet),
       "roman" = tolower(as_roman(x, quiet)),
@@ -100,15 +104,7 @@ as_numbered_labels <- function(x,
     )
 
   if (!is.null(pad)) {
-    width <- max(nchar(num_labels))
-
-    num_labels <-
-      sapply(
-        num_labels,
-        function(x) {
-          paste0(rep(pad, max(0, width - nchar(x))), x)
-        }
-      )
+    num_labels <- str_pad(num_labels, max(nchar(num_labels)), side, pad)
   }
 
   if (is.null(suffix)) {
@@ -118,6 +114,7 @@ as_numbered_labels <- function(x,
   paste0(num_labels, suffix)
 }
 
+
 #' Set start number for numeric vector x
 #'
 #' Helper for [as_numbered_labels()].
@@ -125,7 +122,9 @@ as_numbered_labels <- function(x,
 #' @inheritParams as_numbered_labels
 #' @noRd
 set_start_number <- function(x, start = NULL, labels = "arabic") {
-  start <- start %||% 1
+  if (is.null(start)) {
+    start <- 1
+  }
 
   if (!is.numeric(start)) {
     if (labels %in% c("alph", "Alph", "alpha", "Alpha")) {
@@ -144,8 +143,10 @@ set_start_number <- function(x, start = NULL, labels = "arabic") {
 #'
 #' Character values in the provided dict (default to letters "A" to "Z") are
 #' passed as is. Non-integer numeric values or characters that are not found in
-#' the provided dict are converting to NA values. Adapted from
-#' https://stackoverflow.com/a/44274075
+#' the provided dict are converting to NA values.
+#'
+#' @source Adapted from the recursive solution provided by G. Grothendieck in [a
+#'   May 31, 2017 StackOverflow answer](https://stackoverflow.com/a/44274075).
 #'
 #' @param x An integer vector or a vector that can be coerced to an integer
 #'   vector
@@ -161,7 +162,11 @@ set_start_number <- function(x, start = NULL, labels = "arabic") {
 #' @returns An integer vector composed of objects between 1 and 26 with the same
 #'   length as x.
 #' @noRd
-int_to_alpha <- function(x, suffix = NULL, base = 26, dict = LETTERS, quiet = TRUE) {
+int_to_alpha <- function(x,
+                         suffix = NULL,
+                         base = 26,
+                         dict = LETTERS,
+                         quiet = TRUE) {
   x <- as_integer(x, quiet)
 
   if (!is.numeric(base)) {
@@ -200,7 +205,11 @@ int_to_alpha <- function(x, suffix = NULL, base = 26, dict = LETTERS, quiet = TR
 #'   to improve error messages.
 #' @returns A length 1 integer between 1 and 26.
 #' @noRd
-alpha_to_int <- function(x, dict = LETTERS, n = 1, quiet = TRUE, call = parent.frame()) {
+alpha_to_int <- function(x,
+                         dict = LETTERS,
+                         n = 1,
+                         quiet = TRUE,
+                         call = parent.frame()) {
   check_nchar(x, n, call = call)
   x[x %in% dict] <- seq_along(dict)[dict %in% x]
   as_integer(x, quiet)
