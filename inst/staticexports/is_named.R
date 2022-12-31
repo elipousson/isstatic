@@ -17,7 +17,7 @@ has_all_names <- function(x, name) {
     return(FALSE)
   }
 
-  all(hasName(x, name))
+  all(utils::hasName(x, name))
 }
 
 
@@ -31,5 +31,5 @@ has_any_names <- function(x, name) {
     return(FALSE)
   }
 
-  any(hasName(x, name))
+  any(utils::hasName(x, name))
 }

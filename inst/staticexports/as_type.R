@@ -16,8 +16,8 @@ as_integer <- function(x, quiet = TRUE) {
 #' @noRd
 as_roman <- function(x, quiet = TRUE) {
   if (isTRUE(quiet)) {
-    return(suppressWarnings(as.roman(x)))
+    return(suppressWarnings(utils::as.roman(x)))
   }
 
-  as.roman(x)
+  utils::as.roman(x)
 }
