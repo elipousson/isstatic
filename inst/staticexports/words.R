@@ -1,9 +1,6 @@
-# `R/words.R` is imported from `inst/staticexports/words.R`. 
-# Please edit that file instead.
-
 #' Simple helper for pluralizing words
 #'
-#' @export
+#' @noRd
 plural_words <- function(words,
                          n = 1,
                          suffix = "s",
