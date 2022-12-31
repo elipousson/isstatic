@@ -1,3 +1,5 @@
+#' Simple helper for pluralizing words
+#'
 #' @noRd
 plural_words <- function(words,
                          n = 1,
@@ -5,10 +7,14 @@ plural_words <- function(words,
                          before = "",
                          after = "",
                          replacement = NULL) {
-  words = paste0(before, words, after)
+  words <- paste0(before, words, after)
+
+  if (is.null(replacement)) {
+    replacement <- paste0(words, suffix)
+  }
 
   if (n > 1) {
-    return(replacement %||% paste0(words, suffix))
+    return(replacement)
   }
 
   words

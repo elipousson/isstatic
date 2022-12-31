@@ -2,7 +2,11 @@
 % Please edit documentation in R/copied.R
 \name{combine_words}
 \alias{combine_words}
-\title{Copied from \code{\link[knitr:combine_words]{knitr::combine_words()}}}
+\title{Combine multiple words into a single string}
+\source{
+Adapted from \code{\link[knitr:combine_words]{knitr::combine_words()}} in the
+\href{https://yihui.org/knitr/}{knitr} package.
+}
 \usage{
 combine_words(
   words,
@@ -26,5 +30,9 @@ combine_words(
 elements in the list.}
 }
 \description{
-Copied from \code{\link[knitr:combine_words]{knitr::combine_words()}}
+Combine multiple words into a single string
+}
+\author{
+Yihui Xie \email{xie@yihui.name}
+(\href{https://orcid.org/0000-0003-0645-5666}{ORCID})
 }

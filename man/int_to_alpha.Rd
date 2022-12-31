@@ -3,6 +3,9 @@
 \name{int_to_alpha}
 \alias{int_to_alpha}
 \title{Convert a integer into a corresponding letter or multi-letter string}
+\source{
+Adapted from the recursive solution provided by G. Grothendieck in \href{https://stackoverflow.com/a/44274075}{a May 31, 2017 StackOverflow answer}.
+}
 \usage{
 int_to_alpha(x, suffix = NULL, base = 26, dict = LETTERS, quiet = TRUE)
 }
@@ -29,6 +32,5 @@ length as x.
 \description{
 Character values in the provided dict (default to letters "A" to "Z") are
 passed as is. Non-integer numeric values or characters that are not found in
-the provided dict are converting to NA values. Adapted from
-https://stackoverflow.com/a/44274075
+the provided dict are converting to NA values.
 }
