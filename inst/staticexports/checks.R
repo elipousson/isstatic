@@ -44,7 +44,7 @@ check_nchar <- function(x, n = 1, ..., call = parent.frame()) {
   message <- paste0(
     "All objects in `x` must have ", n, plural_words(" character", n),
     ", not ", message, "."
-    )
+  )
 
   check_if(
     condition = is.null(n) | all(n == num_char),
