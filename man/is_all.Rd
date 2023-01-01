@@ -2,21 +2,26 @@
 % Please edit documentation in R/is_all.R
 \name{is_all}
 \alias{is_all}
+\alias{is_all_null}
+\alias{is_all_na}
 \title{Do all items in a list or vector return TRUE from a predicate function?}
 \usage{
 is_all(x, FUN, ...)
+
+is_all_null(x)
+
+is_all_na(x)
 }
 \arguments{
-\item{x}{A list or vector passed to \code{\link[=vapply]{vapply()}}.}
+\item{x}{A list or vector passed to X parameter of \code{\link[=vapply]{vapply()}}.}
 
-\item{FUN}{Function passed to FUN parameter of \code{\link[=vapply]{vapply()}}.}
+\item{FUN}{the function to be applied to each element of \code{X}:
+    see \sQuote{Details}.  In the case of functions like
+    \code{+}, \code{\%*\%}, the function name must be backquoted or quoted.}
 
 \item{...}{
   Arguments passed on to \code{\link[base:lapply]{base::vapply}}
   \describe{
-    \item{\code{X}}{a vector (atomic or list) or an \code{\link[base]{expression}}
-    object.  Other objects (including classed objects) will be coerced
-    by \code{base::\link[base]{as.list}}.}
     \item{\code{USE.NAMES}}{logical; if \code{TRUE} and if \code{X} is character,
     use \code{X} as \code{\link[base]{names}} for the result unless it had names
     already.  Since this argument follows \code{\dots} its name cannot
@@ -25,6 +30,21 @@ is_all(x, FUN, ...)
     value from FUN.  See \sQuote{Details}.}
   }}
 }
+\value{
+\code{TRUE} if FUN returns \code{TRUE} for all elements of x or \code{FALSE} if any
+element returns \code{FALSE}.
+}
 \description{
 Do all items in a list or vector return TRUE from a predicate function?
+
+\itemize{
+\item \code{\link[=is_all_null]{is_all_null()}}: Are all items in a list or vector \code{NULL} values?
+}
+
+\itemize{
+\item \code{\link[=is_all_na]{is_all_na()}}: Are all items in a list or vector NA values?
+}
+}
+\seealso{
+\code{\link[=is_any]{is_any()}}
 }
