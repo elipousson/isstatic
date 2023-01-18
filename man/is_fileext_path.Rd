@@ -2,19 +2,53 @@
 % Please edit documentation in R/is_path.R
 \name{is_fileext_path}
 \alias{is_fileext_path}
-\title{Is this a file path or url ending in the specified file extension?}
+\alias{is_geojson_fileext}
+\alias{is_csv_fileext}
+\alias{is_excel_fileext}
+\alias{is_rdata_fileext}
+\alias{is_rds_fileext}
+\alias{is_rda_fileext}
+\title{Does this text end in the provided file extension?}
 \usage{
 is_fileext_path(x, fileext, ignore.case = TRUE)
+
+is_geojson_fileext(x, ignore.case = TRUE)
+
+is_csv_fileext(x, ignore.case = TRUE)
+
+is_excel_fileext(x, ignore.case = TRUE)
+
+is_rdata_fileext(x, ignore.case = TRUE)
+
+is_rds_fileext(x, ignore.case = TRUE)
+
+is_rda_fileext(x, ignore.case = TRUE)
 }
 \arguments{
-\item{x}{A character vector to check.}
+\item{x}{A character vector to check for matches, or an object which can be
+coerced by \code{\link[=as.character]{as.character()}} to a character vector.}
 
-\item{fileext}{A file extension (or multiple file extensions) to compare to
-x. Required.}
+\item{fileext}{A file extension to compare to x. Required. If a vector of
+multiple extensions are provided, returns \code{TRUE} for any match.}
 
 \item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
       sensitive} and if \code{TRUE}, case is ignored during matching.}
 }
 \description{
-Is this a file path or url ending in the specified file extension?
+Does this text end in the provided file extension?
+
+\link{is_geojson_fileext}: Does this text end with a GeoJSON file extension?
+
+\link{is_csv_fileext}: Does this text end with a CSV file extension?
+
+\link{is_excel_fileext}: Does this text end with a XLS or XLSX file extension?
+
+\link{is_rdata_fileext}: Does this text end with a rds, rda, or RData file extension?
+
+\link{is_rds_fileext}: Does this text end with a rds file extension?
+
+\link{is_rda_fileext}: Does this text end with a rda file extension?
+}
+\seealso{
+\code{\link[=has_fileext]{has_fileext()}}
 }

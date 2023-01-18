@@ -19,3 +19,6 @@ has_fileext(string = NULL, fileext = NULL, ignore.case = FALSE)
 Check if string contains any filetype or the provided filetype. If string is
 \code{NULL}, returns \code{FALSE}.
 }
+\seealso{
+\code{\link[=is_fileext_path]{is_fileext_path()}}
+}

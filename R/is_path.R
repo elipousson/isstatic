@@ -1,12 +1,14 @@
 # `R/is_path.R` is imported from `inst/staticexports/is_path.R`. 
 # Please edit that file instead.
 
-#' Is this a file path or url ending in the specified file extension?
+#' Does this text end in the provided file extension?
 #'
-#' @param x A character vector to check.
-#' @param fileext A file extension (or multiple file extensions) to compare to
-#'   x. Required.
+#' @param x A character vector to check for matches, or an object which can be
+#'   coerced by [as.character()] to a character vector.
+#' @param fileext A file extension to compare to x. Required. If a vector of
+#'   multiple extensions are provided, returns `TRUE` for any match.
 #' @inheritParams base::grepl
+#' @seealso [isstatic::has_fileext()]
 #' @export
 is_fileext_path <- function(x, fileext, ignore.case = TRUE) {
   grepl(
@@ -16,7 +18,7 @@ is_fileext_path <- function(x, fileext, ignore.case = TRUE) {
   )
 }
 
-#' Is this a file path or url ending in the specified filetype?
+#' Does this text end in the specified filetype?
 #'
 #' @inheritParams is_fileext_path
 #' @param filetype A file extension (or multiple file extensions) to compare to
@@ -26,56 +28,62 @@ is_filetype_path <- function(x, filetype, ignore.case = TRUE) {
   is_fileext_path(x, filetype, ignore.case)
 }
 
-#' Is this a GeoJSON file path or url?
+#' [is_geojson_fileext]: Does this text end with a GeoJSON file extension?
 #'
-#' @inheritParams is_fileext_path
+#' @name is_geojson_fileext
+#' @rdname is_fileext_path
 #' @export
-is_geojson_path <- function(x, ignore.case = TRUE) {
+is_geojson_fileext <- function(x, ignore.case = TRUE) {
   is_fileext_path(x, "geojson", ignore.case)
 }
 
-#' Is this a CSV file path or url?
+#' [is_csv_fileext]: Does this text end with a CSV file extension?
 #'
-#' @inheritParams is_fileext_path
+#' @name is_csv_fileext
+#' @rdname is_fileext_path
 #' @export
-is_csv_path <- function(x, ignore.case = TRUE) {
+is_csv_fileext <- function(x, ignore.case = TRUE) {
   is_fileext_path(x, "csv", ignore.case)
 }
 
-#' Is this a Excel file path or url?
+#' [is_excel_fileext]: Does this text end with a XLS or XLSX file extension?
 #'
-#' @inheritParams is_fileext_path
+#' @name is_excel_fileext
+#' @rdname is_fileext_path
 #' @export
-is_excel_path <- function(x, ignore.case = TRUE) {
+is_excel_fileext <- function(x, ignore.case = TRUE) {
   is_fileext_path(x, c("xls", "xlsx"), ignore.case)
 }
 
-#' Is this a RDS, RDA, or RData file path or url?
+#' [is_rdata_fileext]: Does this text end with a rds, rda, or RData file extension?
 #'
-#' @inheritParams is_fileext_path
+#' @name is_rdata_fileext
+#' @rdname is_fileext_path
 #' @export
-is_rdata_path <- function(x, ignore.case = TRUE) {
+is_rdata_fileext <- function(x, ignore.case = TRUE) {
   any(
     c(
-      is_rda_path(x, ignore.case),
-      is_rds_path(x, ignore.case),
+      is_rda_fileext(x, ignore.case),
+      is_rds_fileext(x, ignore.case),
       is_fileext_path(x, "RData", ignore.case)
     )
   )
 }
 
-#' Is this a RDS file path or url?
+#' [is_rds_fileext]: Does this text end with a rds file extension?
 #'
-#' @inheritParams is_fileext_path
+#' @name is_rds_fileext
+#' @rdname is_fileext_path
 #' @export
-is_rds_path <- function(x, ignore.case = TRUE) {
+is_rds_fileext <- function(x, ignore.case = TRUE) {
   is_fileext_path(x, "rds", ignore.case)
 }
 
-#' Is this a RDA file path or url?
+#' [is_rda_fileext]: Does this text end with a rda file extension?
 #'
-#' @inheritParams is_fileext_path
+#' @name is_rda_fileext
+#' @rdname is_fileext_path
 #' @export
-is_rda_path <- function(x, ignore.case = TRUE) {
+is_rda_fileext <- function(x, ignore.case = TRUE) {
   is_fileext_path(x, "rda", ignore.case)
 }

@@ -8,6 +8,7 @@
 #' @param fileext File type to test against. Optional.
 #' @param ignore.case If `FALSE`, the pattern matching is case sensitive. If
 #'   `TRUE`, case is ignored.
+#' @seealso [isstatic::is_fileext_path()]
 #' @noRd
 has_fileext <- function(string = NULL, fileext = NULL, ignore.case = FALSE) {
   if (is.null(string)) {

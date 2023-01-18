@@ -2,12 +2,13 @@
 % Please edit documentation in R/is_path.R
 \name{is_filetype_path}
 \alias{is_filetype_path}
-\title{Is this a file path or url ending in the specified filetype?}
+\title{Does this text end in the specified filetype?}
 \usage{
 is_filetype_path(x, filetype, ignore.case = TRUE)
 }
 \arguments{
-\item{x}{A character vector to check.}
+\item{x}{A character vector to check for matches, or an object which can be
+coerced by \code{\link[=as.character]{as.character()}} to a character vector.}
 
 \item{filetype}{A file extension (or multiple file extensions) to compare to
 x. Required.}
@@ -16,5 +17,5 @@ x. Required.}
       sensitive} and if \code{TRUE}, case is ignored during matching.}
 }
 \description{
-Is this a file path or url ending in the specified filetype?
+Does this text end in the specified filetype?
 }
