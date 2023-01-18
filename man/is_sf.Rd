@@ -2,13 +2,50 @@
 % Please edit documentation in R/is_sf.R
 \name{is_sf}
 \alias{is_sf}
+\alias{is_sfc}
+\alias{is_sfg}
+\alias{is_bbox}
+\alias{is_sf_ext}
+\alias{is_raster}
+\alias{is_sp}
 \title{Is this a sf class object?}
 \usage{
 is_sf(x)
+
+is_sfc(x)
+
+is_sfg(x)
+
+is_bbox(x)
+
+is_sf_ext(x, ext = TRUE)
+
+is_raster(x)
+
+is_sp(x)
 }
 \arguments{
-\item{x}{Object to be tested.}
+\item{x}{An object to be tested with \code{\link[=inherits]{inherits()}}}
+
+\item{ext}{If \code{TRUE}, return \code{TRUE} is x is a sf, sfc, or bbox object. If
+\code{FALSE}, only check if x is an sf object. If ext is a character object, it
+is passed to the what parameter of \code{\link[=inherits]{inherits()}} with sf.}
 }
 \description{
 Is this a sf class object?
+
+Is this a sfc class object?
+
+Is this a sfg class object?
+
+Is this a bbox class object?
+
+Is this a sf, sfc, or bbox class object?
+
+Is this a RasterLayer class object?
+
+Is this a Spatial class (sp) object?
+}
+\seealso{
+\code{\link[=as_crs]{as_crs()}}
 }
