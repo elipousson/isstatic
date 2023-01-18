@@ -2,15 +2,49 @@
 % Please edit documentation in R/is_any.R
 \name{is_any}
 \alias{is_any}
-\title{Do any items in a list or vector return TRUE from a predicate function?}
+\alias{is_any_null}
+\alias{is_any_na}
+\title{Do any items in a list or vector return \code{TRUE} from a predicate function?}
 \usage{
 is_any(x, FUN, ...)
+
+is_any_null(x)
+
+is_any_na(x)
 }
 \arguments{
 \item{x}{A list or vector passed to \code{\link[=vapply]{vapply()}}.}
 
-\item{FUN}{Function passed to FUN parameter of \code{\link[=vapply]{vapply()}}.}
+\item{FUN}{the function to be applied to each element of \code{X}:
+    see \sQuote{Details}.  In the case of functions like
+    \code{+}, \code{\%*\%}, the function name must be backquoted or quoted.}
+
+\item{...}{
+  Arguments passed on to \code{\link[base:lapply]{base::vapply}}
+  \describe{
+    \item{\code{USE.NAMES}}{logical; if \code{TRUE} and if \code{X} is character,
+    use \code{X} as \code{\link[base]{names}} for the result unless it had names
+    already.  Since this argument follows \code{\dots} its name cannot
+    be abbreviated.}
+    \item{\code{FUN.VALUE}}{a (generalized) vector; a template for the return
+    value from FUN.  See \sQuote{Details}.}
+  }}
+}
+\value{
+\code{TRUE} if FUN returns \code{TRUE} for any element of x or \code{FALSE} if all
+elements return \code{FALSE}.
 }
 \description{
-Do any items in a list or vector return TRUE from a predicate function?
+Do any items in a list or vector return \code{TRUE} from a predicate function?
+
+\itemize{
+\item \code{\link[=is_any_null]{is_any_null()}}: Is any item in a list or vector a \code{NULL} value?
+}
+
+\itemize{
+\item \code{\link[=is_any_na]{is_any_na()}}: Is any item in a list or vector a \code{NA} value?
+}
+}
+\seealso{
+\code{\link[=is_all]{is_all()}}
 }

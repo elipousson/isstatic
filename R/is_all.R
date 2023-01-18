@@ -8,7 +8,7 @@
 #' @inheritDotParams base::vapply -X
 #' @returns `TRUE` if FUN returns `TRUE` for all elements of x or `FALSE` if any
 #'   element returns `FALSE`.
-#' @seealso [is_any()]
+#' @seealso [isstatic::is_any()]
 #' @export
 is_all <- function(x, FUN, ...) {
   all(vapply(x, FUN, FUN.VALUE = TRUE, ...))

@@ -1,15 +1,17 @@
-#' Is a named list or character vector?
+#' Is this object a named list or character vector?
 #'
 #' @param x A data frame or another named object.
+#' @seealso [rlang::is_named()]
 #' @noRd
 is_named <- function(x) {
   !is.null(names(x)) && is_none_in("", names(x))
 }
 
 
-#' Does an object have all of the provided names?
+#' Does this object have all of the provided names?
 #'
-#' @param x A data frame or another named object.
+#' @rdname is_named
+#' @name has_all_names
 #' @param name Element name(s) to check.
 #' @noRd
 has_all_names <- function(x, name) {
@@ -21,10 +23,10 @@ has_all_names <- function(x, name) {
 }
 
 
-#' Is a named list or character vector?
+#' Does this object have any of the provided names?
 #'
-#' @param x A data frame or another named object.
-#' @param name Element name(s) to check.
+#' @rdname is_named
+#' @name has_any_names
 #' @noRd
 has_any_names <- function(x, name) {
   if (anyNA(c(x, name))) {
