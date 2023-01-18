@@ -142,9 +142,6 @@
     <loc>https://elipousson.github.io/isstatic/reference/str_detect.html</loc>
   </url>
   <url>
-    <loc>https://elipousson.github.io/isstatic/reference/str_digits.html</loc>
-  </url>
-  <url>
     <loc>https://elipousson.github.io/isstatic/reference/str_extract.html</loc>
   </url>
   <url>
@@ -152,6 +149,9 @@
   </url>
   <url>
     <loc>https://elipousson.github.io/isstatic/reference/str_pad.html</loc>
+  </url>
+  <url>
+    <loc>https://elipousson.github.io/isstatic/reference/str_pad_digits.html</loc>
   </url>
   <url>
     <loc>https://elipousson.github.io/isstatic/reference/str_remove.html</loc>
