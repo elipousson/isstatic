@@ -2,13 +2,41 @@
 % Please edit documentation in R/is_url.R
 \name{is_url}
 \alias{is_url}
-\title{Is a character vector a URL?}
+\alias{is_esri_url}
+\alias{is_gsheet_url}
+\alias{is_gist_url}
+\alias{is_gmap_url}
+\title{Is an object a URL?}
 \usage{
 is_url(x)
+
+is_esri_url(x)
+
+is_gsheet_url(x)
+
+is_gist_url(x)
+
+is_gmap_url(x)
 }
 \arguments{
-\item{x}{Object to be tested.}
+\item{x}{A object to be tested.}
 }
 \description{
-Is a character vector a URL?
+Is an object a URL?
+
+\itemize{
+\item \code{\link[=is_esri_url]{is_esri_url()}}: Is an object an ArcGIS MapServer or FeatureServer URL?
+}
+
+\itemize{
+\item \code{\link[=is_gsheet_url]{is_gsheet_url()}}: Is an object a Google Sheets URL?
+}
+
+\itemize{
+\item \code{\link[=is_gist_url]{is_gist_url()}}: Is an object a URL for a GitHub Gist?
+}
+
+\itemize{
+\item \code{\link[=is_gmap_url]{is_gmap_url()}}: Is an object a Google Maps URL?
+}
 }

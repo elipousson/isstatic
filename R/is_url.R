@@ -1,9 +1,9 @@
 # `R/is_url.R` is imported from `inst/staticexports/is_url.R`. 
 # Please edit that file instead.
 
-#' Is a character vector a URL?
+#' Is an object a URL?
 #'
-#' @param x Object to be tested.
+#' @param x A object to be tested.
 #' @export
 is_url <- function(x) {
   grepl(
@@ -12,33 +12,37 @@ is_url <- function(x) {
   )
 }
 
-#' Is a character vector an ArcGIS MapServer or FeatureServer URL?
+#' - [is_esri_url()]: Is an object an ArcGIS MapServer or FeatureServer URL?
 #'
-#' @param x Object to be tested.
+#' @name is_esri_url
+#' @rdname is_url
 #' @export
 is_esri_url <- function(x) {
-  grepl("/MapServer|/FeatureServer", x)
+  is_url(x) && grepl("/MapServer|/FeatureServer", x)
 }
 
-#' Is a character vector a Google Sheets URL?
+#' - [is_gsheet_url()]: Is an object a Google Sheets URL?
 #'
-#' @param x Object to be tested.
+#' @name is_gsheet_url
+#' @rdname is_url
 #' @export
 is_gsheet_url <- function(x) {
   grepl("^https://docs.google.com/spreadsheets/", x)
 }
 
-#' Is a character vector a URL for a GitHub Gist?
+#' - [is_gist_url()]: Is an object a URL for a GitHub Gist?
 #'
-#' @param x Object to be tested.
+#' @name is_gist_url
+#' @rdname is_url
 #' @export
 is_gist_url <- function(x) {
   grepl("^https://gist.github.com/", x)
 }
 
-#' Is a character vector a Google Maps URL?
+#' - [is_gmap_url()]: Is an object a Google Maps URL?
 #'
-#' @param x Object to be tested.
+#' @name is_gmap_url
+#' @rdname is_url
 #' @export
 is_gmap_url <- function(x) {
   grepl("^https://www.google.com/maps/", x)
