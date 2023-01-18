@@ -64,7 +64,7 @@ integer</dd>
         <dd>Convert a numeric bearing value to the closest cardinal bearing</dd>
       </dl><dl><dt>
           
-          <code><a href="as_crs.html">as_crs()</a></code> 
+          <code><a href="as_crs.html">as_crs()</a></code> <code><a href="as_crs.html">is_lonlat_crs()</a></code> 
         </dt>
         <dd>Coerce a sf, sfc, or bbox object to a coordinate reference system</dd>
       </dl><dl><dt>
@@ -99,14 +99,9 @@ integer</dd>
         <dd>Combine multiple words into a single string</dd>
       </dl><dl><dt>
           
-          <code><a href="has_all_names.html">has_all_names()</a></code> 
+          <code><a href="digit_pattern.html">digit_pattern()</a></code> 
         </dt>
-        <dd>Does an object have all of the provided names?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="has_any_names.html">has_any_names()</a></code> 
-        </dt>
-        <dd>Is a named list or character vector?</dd>
+        <dd>Helper to return a regex based on side</dd>
       </dl><dl><dt>
           
           <code><a href="has_fileext.html">has_fileext()</a></code> 
@@ -121,7 +116,9 @@ integer</dd>
           
           <code><a href="has_same_crs.html">has_same_crs()</a></code> 
         </dt>
-        <dd>Do two sf, sfc, or bbox objects use the same coordinate reference system?</dd>
+        <dd><ul><li><p><code><a href="../reference/has_same_crs.html">has_same_crs()</a></code>: Do two sf, sfc, or bbox objects use the same coordinate
+reference system?</p></li>
+</ul></dd>
       </dl><dl><dt>
           
           <code><a href="has_same_len.html">has_same_len()</a></code> 
@@ -144,9 +141,9 @@ integer</dd>
         <dd>Is all of x in y?</dd>
       </dl><dl><dt>
           
-          <code><a href="is_any.html">is_any()</a></code> 
+          <code><a href="is_any.html">is_any()</a></code> <code><a href="is_any.html">is_any_null()</a></code> <code><a href="is_any.html">is_any_na()</a></code> 
         </dt>
-        <dd>Do any items in a list or vector return TRUE from a predicate function?</dd>
+        <dd>Do any items in a list or vector return <code>TRUE</code> from a predicate function?</dd>
       </dl><dl><dt>
           
           <code><a href="is_any_in.html">is_any_in()</a></code> 
@@ -154,54 +151,19 @@ integer</dd>
         <dd>Are any of x in y?</dd>
       </dl><dl><dt>
           
-          <code><a href="is_any_na.html">is_any_na()</a></code> 
-        </dt>
-        <dd>Is any item in a list or vector a NA value?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_any_null.html">is_any_null()</a></code> 
-        </dt>
-        <dd>Is any item in a list or vector a NULL value?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_bbox.html">is_bbox()</a></code> 
-        </dt>
-        <dd>Is this a bbox class object?</dd>
-      </dl><dl><dt>
-          
           <code><a href="is_blank.html">is_blank()</a></code> 
         </dt>
         <dd>Test if a character vector consists of blank strings</dd>
       </dl><dl><dt>
           
-          <code><a href="is_csv_path.html">is_csv_path()</a></code> 
+          <code><a href="is_fileext_path.html">is_fileext_path()</a></code> <code><a href="is_fileext_path.html">is_geojson_fileext()</a></code> <code><a href="is_fileext_path.html">is_csv_fileext()</a></code> <code><a href="is_fileext_path.html">is_excel_fileext()</a></code> <code><a href="is_fileext_path.html">is_rdata_fileext()</a></code> <code><a href="is_fileext_path.html">is_rds_fileext()</a></code> <code><a href="is_fileext_path.html">is_rda_fileext()</a></code> 
         </dt>
-        <dd>Is this a CSV file path or url?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_esri_url.html">is_esri_url()</a></code> 
-        </dt>
-        <dd>Is a character vector an ArcGIS MapServer or FeatureServer URL?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_excel_path.html">is_excel_path()</a></code> 
-        </dt>
-        <dd>Is this a Excel file path or url?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_fileext_path.html">is_fileext_path()</a></code> 
-        </dt>
-        <dd>Is this a file path or url ending in the specified file extension?</dd>
+        <dd>Does this text end in the provided file extension?</dd>
       </dl><dl><dt>
           
           <code><a href="is_filetype_path.html">is_filetype_path()</a></code> 
         </dt>
-        <dd>Is this a file path or url ending in the specified filetype?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_geojson_path.html">is_geojson_path()</a></code> 
-        </dt>
-        <dd>Is this a GeoJSON file path or url?</dd>
+        <dd>Does this text end in the specified filetype?</dd>
       </dl><dl><dt>
           
           <code><a href="is_gg.html">is_gg()</a></code> 
@@ -224,29 +186,9 @@ integer</dd>
         <dd>Is this a ggproto class object?</dd>
       </dl><dl><dt>
           
-          <code><a href="is_gist_url.html">is_gist_url()</a></code> 
-        </dt>
-        <dd>Is a character vector a URL for a GitHub Gist?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_gmap_url.html">is_gmap_url()</a></code> 
-        </dt>
-        <dd>Is a character vector a Google Maps URL?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_gsheet_url.html">is_gsheet_url()</a></code> 
-        </dt>
-        <dd>Is a character vector a Google Sheets URL?</dd>
-      </dl><dl><dt>
-          
           <code><a href="is_list_of.html">is_list_of()</a></code> 
         </dt>
         <dd>Do all items in this list inherit the provided class?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_lonlat.html">is_lonlat()</a></code> 
-        </dt>
-        <dd>Is this sf, sfc, or bbox class object in a geographic coordinate system?</dd>
       </dl><dl><dt>
           
           <code><a href="is_margin.html">is_margin()</a></code> 
@@ -254,9 +196,9 @@ integer</dd>
         <dd>Is this a margin class object?</dd>
       </dl><dl><dt>
           
-          <code><a href="is_named.html">is_named()</a></code> 
+          <code><a href="is_named.html">is_named()</a></code> <code><a href="is_named.html">has_all_names()</a></code> <code><a href="is_named.html">has_any_names()</a></code> 
         </dt>
-        <dd>Is a named list or character vector?</dd>
+        <dd>Is this object a named list or character vector?</dd>
       </dl><dl><dt>
           
           <code><a href="is_none_in.html">is_none_in()</a></code> 
@@ -269,34 +211,9 @@ integer</dd>
         <dd>Is this a patchwork class object?</dd>
       </dl><dl><dt>
           
-          <code><a href="is_raster.html">is_raster()</a></code> 
-        </dt>
-        <dd>Is this a RasterLayer class object?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_rda_path.html">is_rda_path()</a></code> 
-        </dt>
-        <dd>Is this a RDA file path or url?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_rdata_path.html">is_rdata_path()</a></code> 
-        </dt>
-        <dd>Is this a RDS, RDA, or RData file path or url?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_rds_path.html">is_rds_path()</a></code> 
-        </dt>
-        <dd>Is this a RDS file path or url?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_sf.html">is_sf()</a></code> 
+          <code><a href="is_sf.html">is_sf()</a></code> <code><a href="is_sf.html">is_sfc()</a></code> <code><a href="is_sf.html">is_sfg()</a></code> <code><a href="is_sf.html">is_bbox()</a></code> <code><a href="is_sf.html">is_sf_ext()</a></code> <code><a href="is_sf.html">is_raster()</a></code> <code><a href="is_sf.html">is_sp()</a></code> 
         </dt>
         <dd>Is this a sf class object?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_sf_ext.html">is_sf_ext()</a></code> 
-        </dt>
-        <dd>Is this a sf, sfc, or bbox class object?</dd>
       </dl><dl><dt>
           
           <code><a href="is_sf_list.html">is_sf_list()</a></code> 
@@ -304,34 +221,19 @@ integer</dd>
         <dd>Do all items in this list inherit the sf class?</dd>
       </dl><dl><dt>
           
-          <code><a href="is_sfc.html">is_sfc()</a></code> 
-        </dt>
-        <dd>Is this a sfc class object?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_sfg.html">is_sfg()</a></code> 
-        </dt>
-        <dd>Is this a sfg class object?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_sp.html">is_sp()</a></code> 
-        </dt>
-        <dd>Is this a Spatial class (sp) object?</dd>
-      </dl><dl><dt>
-          
-          <code><a href="is_unit.html">is_unit()</a></code> <code><a href="is_unit.html">is_unit()</a></code> 
+          <code><a href="is_unit.html">is_unit()</a></code> 
         </dt>
         <dd>Is this a unit class object?</dd>
       </dl><dl><dt>
           
-          <code><a href="is_units.html">is_units()</a></code> <code><a href="is_units.html">is_units()</a></code> 
+          <code><a href="is_units.html">is_units()</a></code> 
         </dt>
         <dd>Is this a units class object?</dd>
       </dl><dl><dt>
           
-          <code><a href="is_url.html">is_url()</a></code> 
+          <code><a href="is_url.html">is_url()</a></code> <code><a href="is_url.html">is_esri_url()</a></code> <code><a href="is_url.html">is_gsheet_url()</a></code> <code><a href="is_url.html">is_gist_url()</a></code> <code><a href="is_url.html">is_gmap_url()</a></code> 
         </dt>
-        <dd>Is a character vector a URL?</dd>
+        <dd>Is an object a URL?</dd>
       </dl><dl><dt>
           
           <code><a href="map_chr.html">map_chr()</a></code> 
@@ -359,14 +261,34 @@ integer</dd>
         <dd>Detect the presence or absence of a pattern in a string</dd>
       </dl><dl><dt>
           
+          <code><a href="str_digits.html">str_pad_digits()</a></code> <code><a href="str_digits.html">str_extract_digits()</a></code> <code><a href="str_digits.html">str_replace_digits()</a></code> <code><a href="str_digits.html">str_increment_digits()</a></code> 
+        </dt>
+        <dd>Modify digits within strings</dd>
+      </dl><dl><dt>
+          
           <code><a href="str_extract.html">str_extract()</a></code> 
         </dt>
         <dd>Extract matching patterns from a string</dd>
       </dl><dl><dt>
           
+          <code><a href="str_fileext.html">str_add_fileext()</a></code> <code><a href="str_fileext.html">str_remove_fileext()</a></code> <code><a href="str_fileext.html">str_extract_fileext()</a></code> 
+        </dt>
+        <dd>Modify strings to help make consistent file names</dd>
+      </dl><dl><dt>
+          
           <code><a href="str_pad.html">str_pad()</a></code> 
         </dt>
         <dd>Duplicate and concatenate strings within a character vector</dd>
+      </dl><dl><dt>
+          
+          <code><a href="str_remove.html">str_remove()</a></code> 
+        </dt>
+        <dd>Remove matched patterns in a string</dd>
+      </dl><dl><dt>
+          
+          <code><a href="str_replace.html">str_replace()</a></code> 
+        </dt>
+        <dd>Replace matched patterns in a string</dd>
       </dl><dl><dt>
           
           <code><a href="tosentence.html">tosentence()</a></code> 
