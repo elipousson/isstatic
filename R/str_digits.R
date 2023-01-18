@@ -3,20 +3,15 @@
 
 #' Modify digits within strings
 #'
-#' @description
-#' - [str_replace_digits()]: Replace digits with a string optionally
+#' [str_replace_digits()]: Replace digits with a string optionally
 #' incrementing the digits
-#' - [str_pad_digits()]: Pad a string with digits
-#' - [str_extract_digits()]: Extract digits from a string
+#' [str_pad_digits()]: Pad a string with digits
+#' [str_extract_digits()]: Extract digits from a string
 #'
-#' @name str_digits
-NULL
-
 #' @param pad Single padding character added to digits in string; defaults to
 #'   "0"
 #' @inheritParams stringstatic::str_pad
 #' @name str_pad_digits
-#' @rdname str_digits
 #' @export
 str_pad_digits <- function(string, pad = "0", side = "left", width = NULL) {
   if (is.null(pad)) {
@@ -35,14 +30,14 @@ str_pad_digits <- function(string, pad = "0", side = "left", width = NULL) {
 }
 
 #' @name str_extract_digits
-#' @rdname str_digits
+#' @rdname str_pad_digits
 #' @export
 str_extract_digits <- function(string, pattern = "[0-9]+", side = NULL) {
   str_extract(string, digit_pattern(pattern, side))
 }
 
 #' @name str_replace_digits
-#' @rdname str_digits
+#' @rdname str_pad_digits
 #' @inheritParams stringstatic::str_replace
 #' @export
 str_replace_digits <- function(string,
@@ -76,7 +71,7 @@ digit_pattern <- function(pattern = "[0-9]+", side = NULL) {
 }
 
 #' @name str_increment_digits
-#' @rdname str_digits
+#' @rdname str_pad_digits
 #' @param increment If `TRUE`, increment digits in string by 1. If numeric,
 #'   increment digits in string by value. If `NULL`, 0, or if no digits are
 #'   present in string, return string as is.
