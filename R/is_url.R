@@ -18,7 +18,7 @@ is_url <- function(x) {
 #' @rdname is_url
 #' @export
 is_esri_url <- function(x) {
-  is_url(x) && grepl("/MapServer|/FeatureServer", x)
+  is_url(x) & grepl("/MapServer|/FeatureServer", x)
 }
 
 #' - [is_gsheet_url()]: Is an object a Google Sheets URL?
