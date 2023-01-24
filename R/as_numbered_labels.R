@@ -59,9 +59,9 @@ as_numbered_labels <- function(x,
       x_col <- x[, cols[1]]
     }
 
-    x[num_col, ] <-
+    x[[num_col]] <-
       as_numbered_labels(
-        x_col, labels, start, suffix, base, col, pad, side, quiet, call
+        x_col, labels, start, suffix, base, cols, pad, side, quiet, call
       )
 
     return(x)
