@@ -2,13 +2,28 @@
 % Please edit documentation in R/is_gg.R
 \name{is_gg}
 \alias{is_gg}
+\alias{is_ggplot}
+\alias{is_ggproto}
+\alias{is_patchwork}
 \title{Is this a gg class object?}
 \usage{
 is_gg(x)
+
+is_ggplot(x)
+
+is_ggproto(x)
+
+is_patchwork(x)
 }
 \arguments{
 \item{x}{Object to be tested.}
 }
 \description{
 Is this a gg class object?
+
+Is this a ggplot class object?
+
+Is this a ggproto class object?
+
+Is this a patchwork class object?
 }

@@ -2,13 +2,18 @@
 % Please edit documentation in R/is_misc.R
 \name{is_unit}
 \alias{is_unit}
+\alias{is_margin}
 \title{Is this a unit class object?}
 \usage{
 is_unit(x)
+
+is_margin(x)
 }
 \arguments{
 \item{x}{Object to be tested.}
 }
 \description{
 Is this a unit class object?
+
+Is this a margin class object?
 }
