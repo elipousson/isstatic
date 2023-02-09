@@ -28,7 +28,7 @@ str_pad_digits <- function(string, pad = "0", side = "left", width = NULL) {
 
 #' @name str_extract_digits
 #' @rdname str_pad_digits
-#' @export
+#' @noRd
 str_extract_digits <- function(string, pattern = "[0-9]+", side = NULL) {
   str_extract(string, digit_pattern(pattern, side))
 }
