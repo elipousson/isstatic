@@ -14,6 +14,8 @@ is_lonlat_crs(x, crs = c("EPSG:4326", "EPSG:4269"))
 
 \item{input}{If \code{TRUE} (default), return only the "input" component of the
 crs object. If \code{FALSE}, return the full crs object.}
+
+\item{crs}{For is_lonlat_crs, coordinate reference system to use as lonlat crs.}
 }
 \description{
 This function should be updated to support stars and terra objects.

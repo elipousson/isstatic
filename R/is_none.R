@@ -1,4 +1,4 @@
-# `R/is_any.R` is imported from `inst/staticexports/is_any.R`. 
+# `R/is_none.R` is imported from `inst/staticexports/is_none.R`. 
 # Please edit that file instead.
 
 #' Do any items in a list or vector return `TRUE` from a predicate function?
@@ -31,22 +31,3 @@ is_any_null <- function(x) {
 is_any_na <- function(x) {
   is_any(x, is.na)
 }
-
-#' - [is_none()]: Is no item in a list or vector return `TRUE` from a predicate function?
-#'
-#' @name is_none
-#' @rdname is_any
-#' @export
-is_none <- function(x, FUN, ...) {
-  isFALSE(is_any(x, FUN, ...))
-}
-
-#' - [is_none_null()]: Is no item in a list or vector is `NULL`?
-#'
-#' @name is_none_null
-#' @rdname is_any
-#' @export
-is_none_null <- function(x) {
-  isFALSE(is_any_null(x))
-}
-

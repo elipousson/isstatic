@@ -6,6 +6,15 @@
 \usage{
 has_filetype(string = NULL, filetype = NULL, ignore.case = FALSE)
 }
+\arguments{
+\item{string}{String to be tested with or without filetype. Defaults to
+\code{NULL}.}
+
+\item{filetype}{File type to test against. Optional.}
+
+\item{ignore.case}{If \code{FALSE}, the pattern matching is case sensitive. If
+\code{TRUE}, case is ignored.}
+}
 \description{
 Alternate naming convention for \code{\link[=has_fileext]{has_fileext()}}
 }

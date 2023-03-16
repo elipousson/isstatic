@@ -28,13 +28,13 @@ as_cardinal_bearing <- function(x,
                                 winds = 8,
                                 cols = c("bearing", "cardinal_bearing")) {
   if (is.data.frame(x)) {
-    check_name(x, cols[1])
+    static_check_name(x, cols[1])
     x[[cols[2]]] <- as_cardinal_bearing(x[[cols[1]]], winds)
     return(x)
   }
 
-  check_numeric(x)
-  check_if(
+  static_check_numeric(x)
+  static_check_if(
     condition = winds %in% c(4, 8, 16),
     "`winds` must be 4, 8, or 16."
   )

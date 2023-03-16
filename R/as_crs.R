@@ -23,7 +23,7 @@ as_crs <- function(x, input = TRUE) {
     x <- as_sfc(x)
   }
 
-  check_if(
+  static_check_if(
     is_sfc(x) | is_bbox(x),
     "`as_crs()` requires a <sf>, <sfc>, or <bbox> object."
   )
@@ -46,6 +46,7 @@ as_crs <- function(x, input = TRUE) {
 #'
 #' @name is_lonlat_crs
 #' @rdname as_crs
+#' @param crs For is_lonlat_crs, coordinate reference system to use as lonlat crs.
 #' @export
 is_lonlat_crs <- function(x, crs = c("EPSG:4326", "EPSG:4269")) {
   if (!is_sf_ext(x)) {

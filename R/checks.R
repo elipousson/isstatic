@@ -1,8 +1,20 @@
 # `R/checks.R` is imported from `inst/staticexports/checks.R`. 
 # Please edit that file instead.
 
+#' Static checks
+#'
+#' @param condition Condition to check.
+#' @param message Message to pass to stop if condition is FALSE. Defaults to
+#'   `NULL`.
+#' @param call Call passed to stop. Defaults to parent.frame()
+#' @name static_check
+#' @keywords internal
+NULL
+
+#' @name static_check_if
+#' @rdname static_check
 #' @export
-check_if <- function(condition, message = NULL, call = parent.frame()) {
+static_check_if <- function(condition, message = NULL, call = parent.frame()) {
   if (isTRUE(condition)) {
     return(invisible(NULL))
   }
@@ -13,29 +25,32 @@ check_if <- function(condition, message = NULL, call = parent.frame()) {
   )
 }
 
-
+#' @name static_check_character
+#' @rdname static_check
 #' @export
-check_character <- function(x, call = parent.frame()) {
-  check_if(
+static_check_character <- function(x, call = parent.frame()) {
+  static_check_if(
     condition = all(is.character(x[!is.na(x)])),
     message = paste("`x` must be a <character> vector, not", class(x)),
     call = call
   )
 }
 
-
+#' @name static_check_numeric
+#' @rdname static_check
 #' @export
-check_numeric <- function(x, call = parent.frame()) {
-  check_if(
+static_check_numeric <- function(x, call = parent.frame()) {
+  static_check_if(
     condition = all(is.numeric(x[!is.na(x)])),
     message = paste("`x` must be a <numeric> vector, not", class(x)),
     call = call
   )
 }
 
-
+#' @name static_check_nchar
+#' @rdname static_check
 #' @export
-check_nchar <- function(x, n = 1, ..., call = parent.frame()) {
+static_check_nchar <- function(x, n = 1, ..., call = parent.frame()) {
   num_char <- unique(nchar(x[!is.na(x)], ...))
 
   message <- num_char
@@ -49,17 +64,18 @@ check_nchar <- function(x, n = 1, ..., call = parent.frame()) {
     ", not ", message, "."
   )
 
-  check_if(
+  static_check_if(
     condition = is.null(n) | all(n == num_char),
     message = message,
     call = call
   )
 }
 
-
+#' @name static_check_name
+#' @rdname static_check
 #' @export
-check_name <- function(x, name = NULL, call = parent.frame()) {
-  check_if(
+static_check_name <- function(x, name = NULL, call = parent.frame()) {
+  static_check_if(
     condition = has_all_names(x, name),
     message = paste0(
       "`x` must have ", plural_words("name", length(name), after = " "), name,
