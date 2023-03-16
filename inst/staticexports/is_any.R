@@ -28,3 +28,22 @@ is_any_null <- function(x) {
 is_any_na <- function(x) {
   is_any(x, is.na)
 }
+
+#' - [is_none()]: Is no item in a list or vector return `TRUE` from a predicate function?
+#'
+#' @name is_none
+#' @rdname is_any
+#' @noRd
+is_none <- function(x, FUN, ...) {
+  isFALSE(is_any(x, FUN, ...))
+}
+
+#' - [is_none_null()]: Is no item in a list or vector is `NULL`?
+#'
+#' @name is_none_null
+#' @rdname is_any
+#' @noRd
+is_none_null <- function(x) {
+  isFALSE(is_any_null(x))
+}
+
