@@ -7,7 +7,41 @@ is_any_null(): Is any item in a list or vector a NULL value?
 
 is_any_na(): Is any item in a list or vector a NA value?
 
+
+
+is_none(): Is no item in a list or vector return TRUE from a predicate function?
+
+
+
+is_none_null(): Is no item in a list or vector is NULL?
+
+
+Do any items in a list or vector return TRUE from a predicate function?
+
+is_any_null(): Is any item in a list or vector a NULL value?
+
+
+
+is_any_na(): Is any item in a list or vector a NA value?
+
 "><title>Do any items in a list or vector return TRUE from a predicate function? — is_any • isstatic</title><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Do any items in a list or vector return TRUE from a predicate function? — is_any"><meta property="og:description" content="Do any items in a list or vector return TRUE from a predicate function?
+
+is_any_null(): Is any item in a list or vector a NULL value?
+
+
+
+is_any_na(): Is any item in a list or vector a NA value?
+
+
+
+is_none(): Is no item in a list or vector return TRUE from a predicate function?
+
+
+
+is_none_null(): Is no item in a list or vector is NULL?
+
+
+Do any items in a list or vector return TRUE from a predicate function?
 
 is_any_null(): Is any item in a list or vector a NULL value?
 
@@ -54,7 +88,7 @@ is_any_na(): Is any item in a list or vector a NA value?
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Do any items in a list or vector return <code>TRUE</code> from a predicate function?</h1>
-      <small class="dont-index">Source: <a href="https://github.com/elipousson/isstatic/blob/HEAD/R/is_any.R" class="external-link"><code>R/is_any.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/elipousson/isstatic/blob/HEAD/R/is_any.R" class="external-link"><code>R/is_any.R</code></a>, <a href="https://github.com/elipousson/isstatic/blob/HEAD/R/is_none.R" class="external-link"><code>R/is_none.R</code></a></small>
       <div class="d-none name"><code>is_any.Rd</code></div>
     </div>
 
@@ -62,11 +96,26 @@ is_any_na(): Is any item in a list or vector a NA value?
     <p>Do any items in a list or vector return <code>TRUE</code> from a predicate function?</p>
 <ul><li><p><code>is_any_null()</code>: Is any item in a list or vector a <code>NULL</code> value?</p></li>
 </ul><ul><li><p><code>is_any_na()</code>: Is any item in a list or vector a <code>NA</code> value?</p></li>
+</ul><ul><li><p><code>is_none()</code>: Is no item in a list or vector return <code>TRUE</code> from a predicate function?</p></li>
+</ul><ul><li><p><code>is_none_null()</code>: Is no item in a list or vector is <code>NULL</code>?</p></li>
+</ul><p>Do any items in a list or vector return <code>TRUE</code> from a predicate function?</p>
+<ul><li><p><code>is_any_null()</code>: Is any item in a list or vector a <code>NULL</code> value?</p></li>
+</ul><ul><li><p><code>is_any_na()</code>: Is any item in a list or vector a <code>NA</code> value?</p></li>
 </ul></div>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">is_any</span><span class="op">(</span><span class="va">x</span>, <span class="va">FUN</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_any_null</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_any_na</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_none</span><span class="op">(</span><span class="va">x</span>, <span class="va">FUN</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_none_null</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">is_any</span><span class="op">(</span><span class="va">x</span>, <span class="va">FUN</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">is_any_null</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span></span>
@@ -86,7 +135,7 @@ is_any_na(): Is any item in a list or vector a NA value?
 
 
 <dt>...</dt>
-<dd><p>Arguments passed on to <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">base::vapply</a></code></p><dl><dt><code>USE.NAMES</code></dt>
+<dd><p>Arguments passed on to <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">base::vapply</a></code>, <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">base::vapply</a></code></p><dl><dt><code>USE.NAMES</code></dt>
 <dd><p>logical; if <code>TRUE</code> and if <code>X</code> is character,
     use <code>X</code> as <code><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></code> for the result unless it had names
     already.  Since this argument follows <code>...</code> its name cannot
@@ -106,10 +155,15 @@ is_any_na(): Is any item in a list or vector a NA value?
 
 <p><code>TRUE</code> if FUN returns <code>TRUE</code> for any element of x or <code>FALSE</code> if all
 elements return <code>FALSE</code>.</p>
+
+
+<p><code>TRUE</code> if FUN returns <code>TRUE</code> for any element of x or <code>FALSE</code> if all
+elements return <code>FALSE</code>.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="is_all.html">is_all()</a></code></p></div>
+    <div class="dont-index"><p><code><a href="is_all.html">is_all()</a></code></p>
+<p><code><a href="is_all.html">is_all()</a></code></p></div>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
