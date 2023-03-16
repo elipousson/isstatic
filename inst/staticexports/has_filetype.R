@@ -26,6 +26,11 @@ has_fileext <- function(string = NULL, fileext = NULL, ignore.case = FALSE) {
 #'
 #' Alternate naming convention for [isstatic::has_fileext()]
 #'
+#' @param string String to be tested with or without filetype. Defaults to
+#'   `NULL`.
+#' @param filetype File type to test against. Optional.
+#' @param ignore.case If `FALSE`, the pattern matching is case sensitive. If
+#'   `TRUE`, case is ignored.
 #' @noRd
 has_filetype <- function(string = NULL, filetype = NULL, ignore.case = FALSE) {
   has_fileext(string, filetype, ignore.case)

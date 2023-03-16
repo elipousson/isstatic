@@ -43,6 +43,7 @@ as_crs <- function(x, input = TRUE) {
 #'
 #' @name is_lonlat_crs
 #' @rdname as_crs
+#' @param crs For is_lonlat_crs, coordinate reference system to use as lonlat crs.
 #' @noRd
 is_lonlat_crs <- function(x, crs = c("EPSG:4326", "EPSG:4269")) {
   if (!is_sf_ext(x)) {

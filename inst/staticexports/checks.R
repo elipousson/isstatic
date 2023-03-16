@@ -1,3 +1,15 @@
+#' Static checks
+#'
+#' @param condition Condition to check.
+#' @param message Message to pass to stop if condition is FALSE. Defaults to
+#'   `NULL`.
+#' @param call Call passed to stop. Defaults to parent.frame()
+#' @name static_check
+#' @keywords internal
+NULL
+
+#' @name static_check_if
+#' @rdname static_check
 #' @noRd
 static_check_if <- function(condition, message = NULL, call = parent.frame()) {
   if (isTRUE(condition)) {
@@ -10,7 +22,8 @@ static_check_if <- function(condition, message = NULL, call = parent.frame()) {
   )
 }
 
-
+#' @name static_check_character
+#' @rdname static_check
 #' @noRd
 static_check_character <- function(x, call = parent.frame()) {
   static_check_if(
@@ -20,7 +33,8 @@ static_check_character <- function(x, call = parent.frame()) {
   )
 }
 
-
+#' @name static_check_numeric
+#' @rdname static_check
 #' @noRd
 static_check_numeric <- function(x, call = parent.frame()) {
   static_check_if(
@@ -30,7 +44,8 @@ static_check_numeric <- function(x, call = parent.frame()) {
   )
 }
 
-
+#' @name static_check_nchar
+#' @rdname static_check
 #' @noRd
 static_check_nchar <- function(x, n = 1, ..., call = parent.frame()) {
   num_char <- unique(nchar(x[!is.na(x)], ...))
@@ -53,7 +68,8 @@ static_check_nchar <- function(x, n = 1, ..., call = parent.frame()) {
   )
 }
 
-
+#' @name static_check_name
+#' @rdname static_check
 #' @noRd
 static_check_name <- function(x, name = NULL, call = parent.frame()) {
   static_check_if(

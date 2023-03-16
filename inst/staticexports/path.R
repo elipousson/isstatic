@@ -5,6 +5,7 @@
 #' @param ... Additional strings to pass before path and filename.
 #' @param filename File name. Optional if path is supplied.
 #' @param path Path name. Optional if filename is supplied.
+#' @inheritParams base::file.path
 #' @param allow_null If `TRUE`, return `NULL` if filename and path are `NULL`
 #'   and no additional strings are provided to .... If `FALSE`, stop if filename
 #'   and path are `NULL` and no additional strings are provided to ...
