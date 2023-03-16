@@ -5,9 +5,13 @@
 
 <!-- badges: start -->
 
-[![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Project Status: WIP – Initial development is in progress, but there
+has not yet been a stable, usable release suitable for the
+public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![License:
-CC0](https://img.shields.io/badge/license-CC0-brightgreen.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-brightgreen.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
 <!-- badges: end -->
 
 The goal of isstatic is to provide a convenient set of static functions
@@ -15,8 +19,9 @@ for checking object class inheritance, regex pattern matching,
 extracting attributes, and basic type conversion.
 
 I’ve used and reused these functions across a number of different
-packages so using staticimports is also intended as a way to keep those
-functions standardized across projects. This package is inspired by the
+packages so using [staticimports](https://github.com/wch/staticimports)
+is also intended as a way to keep those functions standardized across
+projects. This package is inspired by the
 [stringstatic](https://github.com/rossellhayes/stringstatic/) package by
 Alex Rossell Hayes.
 
