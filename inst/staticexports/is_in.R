@@ -13,7 +13,7 @@ is_any_in <- function(x, y) {
 #' @param y Vector to compare x to.
 #' @noRd
 is_none_in <- function(x, y) {
-  !any(x %in% y)
+  isFALSE(is_any_in(x, y))
 }
 
 #' Is all of x in y?
