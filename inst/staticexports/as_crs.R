@@ -20,7 +20,7 @@ as_crs <- function(x, input = TRUE) {
     x <- as_sfc(x)
   }
 
-  check_if(
+  static_check_if(
     is_sfc(x) | is_bbox(x),
     "`as_crs()` requires a <sf>, <sfc>, or <bbox> object."
   )

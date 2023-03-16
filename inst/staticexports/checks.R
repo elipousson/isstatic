@@ -1,5 +1,5 @@
 #' @noRd
-check_if <- function(condition, message = NULL, call = parent.frame()) {
+static_check_if <- function(condition, message = NULL, call = parent.frame()) {
   if (isTRUE(condition)) {
     return(invisible(NULL))
   }
@@ -12,8 +12,8 @@ check_if <- function(condition, message = NULL, call = parent.frame()) {
 
 
 #' @noRd
-check_character <- function(x, call = parent.frame()) {
-  check_if(
+static_check_character <- function(x, call = parent.frame()) {
+  static_check_if(
     condition = all(is.character(x[!is.na(x)])),
     message = paste("`x` must be a <character> vector, not", class(x)),
     call = call
@@ -22,8 +22,8 @@ check_character <- function(x, call = parent.frame()) {
 
 
 #' @noRd
-check_numeric <- function(x, call = parent.frame()) {
-  check_if(
+static_check_numeric <- function(x, call = parent.frame()) {
+  static_check_if(
     condition = all(is.numeric(x[!is.na(x)])),
     message = paste("`x` must be a <numeric> vector, not", class(x)),
     call = call
@@ -32,7 +32,7 @@ check_numeric <- function(x, call = parent.frame()) {
 
 
 #' @noRd
-check_nchar <- function(x, n = 1, ..., call = parent.frame()) {
+static_check_nchar <- function(x, n = 1, ..., call = parent.frame()) {
   num_char <- unique(nchar(x[!is.na(x)], ...))
 
   message <- num_char
@@ -46,7 +46,7 @@ check_nchar <- function(x, n = 1, ..., call = parent.frame()) {
     ", not ", message, "."
   )
 
-  check_if(
+  static_check_if(
     condition = is.null(n) | all(n == num_char),
     message = message,
     call = call
@@ -55,8 +55,8 @@ check_nchar <- function(x, n = 1, ..., call = parent.frame()) {
 
 
 #' @noRd
-check_name <- function(x, name = NULL, call = parent.frame()) {
-  check_if(
+static_check_name <- function(x, name = NULL, call = parent.frame()) {
+  static_check_if(
     condition = has_all_names(x, name),
     message = paste0(
       "`x` must have ", plural_words("name", length(name), after = " "), name,

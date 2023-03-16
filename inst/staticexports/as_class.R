@@ -10,7 +10,7 @@ as_sfc <- function(x) {
     return(x)
   }
 
-  check_if(
+  static_check_if(
     condition = is_sf(x),
     "`as_sfc()` requires a <sf> object."
   )

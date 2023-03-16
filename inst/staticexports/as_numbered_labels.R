@@ -52,7 +52,7 @@ as_numbered_labels <- function(x,
 
     if (length(cols) == 2) {
       num_col <- cols[2]
-      check_name(x, cols[1])
+      static_check_name(x, cols[1])
       x_col <- x[, cols[1]]
     }
 
@@ -66,7 +66,7 @@ as_numbered_labels <- function(x,
 
   if (str_detect(labels, " ")) {
     start <- str_extract(labels, "(?<= ).+$")
-    check_nchar(start, n = 1)
+    static_check_nchar(start, n = 1)
     labels <- str_extract(labels, "^.+(?= )")
     labels <- tolower(labels)
     if (str_detect(start, "[A-Z]")) {
@@ -209,7 +209,7 @@ alpha_to_int <- function(x,
                          n = 1,
                          quiet = TRUE,
                          call = parent.frame()) {
-  check_nchar(x, n, call = call)
+  static_check_nchar(x, n, call = call)
   x[x %in% dict] <- seq_along(dict)[dict %in% x]
   as_integer(x, quiet)
 }

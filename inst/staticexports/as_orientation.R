@@ -13,7 +13,7 @@ as_orientation <- function(x, tolerance = 0.1, cols = c("width", "height")) {
   tolerance <- abs(tolerance)
 
   if (is.data.frame(x)) {
-    check_name(x, cols)
+    static_check_name(x, cols)
     return(
       as_orientation(
         as.numeric(x[, cols[1]]) / as.numeric(x[, cols[2]]),
@@ -22,7 +22,7 @@ as_orientation <- function(x, tolerance = 0.1, cols = c("width", "height")) {
     )
   }
 
-  check_numeric(x)
+  static_check_numeric(x)
 
   if (length(x) > 1) {
     return(map_chr(x, as_orientation, tolerance))
