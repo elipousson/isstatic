@@ -5,7 +5,7 @@
 \alias{str_add_fileext}
 \alias{str_remove_fileext}
 \alias{str_extract_fileext}
-\title{Modify strings to help make consistent file names}
+\title{Add, remove, or extract file extensions from character vectors}
 \usage{
 str_add_fileext(string, fileext = NULL)
 
@@ -14,17 +14,33 @@ str_remove_fileext(string, fileext = NULL)
 str_extract_fileext(string, fileext = NULL)
 }
 \arguments{
-\item{string}{Character vector}
+\item{string}{Character vector of any length. Required.}
 
-\item{fileext}{File extension string}
+\item{fileext}{File extension. Optional. Defaults to \code{NULL}.}
 }
 \description{
-Functions include:
-}
-\details{
+These function uses \code{\link[stringstatic:str_c]{stringstatic::str_c()}}, \code{\link[stringstatic:str_remove]{stringstatic::str_remove()}} and
+\code{\link[stringstatic:str_extract]{stringstatic::str_extract()}} and works to:
 \itemize{
-\item \code{\link[=str_add_fileext]{str_add_fileext()}}: Add file type to string
-\item \code{\link[=str_remove_fileext]{str_remove_fileext()}}: Remove file type from string
-\item \code{\link[=str_extract_fileext]{str_extract_fileext()}}: Extract file type from string
+\item Add file extensions (or replace existing file extensions) with
+\code{\link[=str_add_fileext]{str_add_fileext()}}
+\item Remove file extensions with \code{\link[=str_remove_fileext]{str_remove_fileext()}}
+\item Extract existing file names \code{\link[=str_extract_fileext]{str_extract_fileext()}} (returning NA values if
+a string has no file extension)
+}
+}
+\examples{
+str_add_fileext("image", "jpeg")
+
+str_remove_fileext(c("file.txt", "word.docx"), "docx")
+
+str_extract_fileext(c("file1.pdf", "file2"))
+
+str_extract_fileext(c("image1.png", "image2.jpeg"), "jpeg")
+}
+\seealso{
+\itemize{
+\item \code{\link[=has_fileext]{has_fileext()}}
+\item \code{\link[=is_fileext_path]{is_fileext_path()}}
 }
 }

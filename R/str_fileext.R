@@ -1,24 +1,39 @@
 # `R/str_fileext.R` is imported from `inst/staticexports/str_fileext.R`. 
 # Please edit that file instead.
 
-#' Modify strings to help make consistent file names
+#' Add, remove, or extract file extensions from character vectors
 #'
-#' Functions include:
+#' @description
+#' These function uses [stringstatic::str_c()], [stringstatic::str_remove()] and
+#' [stringstatic::str_extract()] and works to:
 #'
-#' - [str_add_fileext()]: Add file type to string
-#' - [str_remove_fileext()]: Remove file type from string
-#' - [str_extract_fileext()]: Extract file type from string
+#' - Add file extensions (or replace existing file extensions) with
+#' [str_add_fileext()]
+#' - Remove file extensions with [str_remove_fileext()]
+#' - Extract existing file names [str_extract_fileext()] (returning NA values if
+#' a string has no file extension)
 #'
 #' @name str_fileext
-#' @param string Character vector
+#' @param string Character vector of any length. Required.
+#' @param fileext File extension. Optional. Defaults to `NULL`.
+#' @examples
+#' str_add_fileext("image", "jpeg")
+#'
+#' str_remove_fileext(c("file.txt", "word.docx"), "docx")
+#'
+#' str_extract_fileext(c("file1.pdf", "file2"))
+#'
+#' str_extract_fileext(c("image1.png", "image2.jpeg"), "jpeg")
+#' @seealso
+#' - [isstatic::has_fileext()]
+#' - [isstatic::is_fileext_path()]
 NULL
 #'
 #' @name str_add_fileext
 #' @rdname str_fileext
-#' @param fileext File extension string
 #' @export
 str_add_fileext <- function(string, fileext = NULL) {
-  if (!is.null(fileext) & all(has_fileext(string, fileext))) {
+  if (is.null(fileext) || !is.null(fileext) && all(has_fileext(string, fileext))) {
     return(string)
   }
 
@@ -26,7 +41,7 @@ str_add_fileext <- function(string, fileext = NULL) {
     string <- str_remove_fileext(string)
   }
 
-  paste0(string, ".", fileext)
+  str_c(string, ".", fileext)
 }
 
 #' @name str_remove_fileext
@@ -47,8 +62,6 @@ str_extract_fileext <- function(string, fileext = NULL) {
   if (is.null(fileext)) {
     fileext <- "[a-zA-Z0-9]+"
   }
-  regmatches(
-    string,
-    regexpr(paste0("(?<=\\.)", fileext, "$(?!\\.)"), string, perl = TRUE)
-    )
+
+  str_extract(string, paste0("(?<=\\.)", fileext, "$(?!\\.)"))
 }
