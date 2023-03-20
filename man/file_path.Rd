@@ -6,18 +6,19 @@
 \usage{
 file_path(
   ...,
-  filename = NULL,
   path = NULL,
+  filename = NULL,
   fsep = .Platform$file.sep,
-  allow_null = FALSE
+  allow_null = FALSE,
+  call = parent.frame()
 )
 }
 \arguments{
 \item{...}{Additional strings to pass before path and filename.}
 
-\item{filename}{File name. Optional if path is supplied.}
-
 \item{path}{Path name. Optional if filename is supplied.}
+
+\item{filename}{File name. Optional if path is supplied.}
 
 \item{fsep}{the path separator to use (assumed to be ASCII).}
 
