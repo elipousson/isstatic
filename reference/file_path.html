@@ -53,10 +53,11 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">file_path</span><span class="op">(</span></span>
 <span>  <span class="va">...</span>,</span>
-<span>  filename <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  path <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  filename <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  fsep <span class="op">=</span> <span class="va">.Platform</span><span class="op">$</span><span class="va">file.sep</span>,</span>
-<span>  allow_null <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>  allow_null <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  call <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -66,12 +67,12 @@
 <dd><p>Additional strings to pass before path and filename.</p></dd>
 
 
-<dt>filename</dt>
-<dd><p>File name. Optional if path is supplied.</p></dd>
-
-
 <dt>path</dt>
 <dd><p>Path name. Optional if filename is supplied.</p></dd>
+
+
+<dt>filename</dt>
+<dd><p>File name. Optional if path is supplied.</p></dd>
 
 
 <dt>fsep</dt>
