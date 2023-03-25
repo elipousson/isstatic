@@ -55,7 +55,7 @@ is_file <- function(x,
   files <- file.exists(x)
 
   if (use_names) {
-    files <- setNames(files, x)
+    names(files) <- x
   }
   if (!include_dirs) {
     files <- files & !is_dir(x)
@@ -74,13 +74,13 @@ is_file <- function(x,
 is_dir <- function(x, use_names = FALSE) {
   dirs <-
     vapply(
-    x,
-    function(p) {
-      dir.exists(p)
-    },
-    FUN.VALUE = TRUE,
-    USE.NAMES = use_names
-  )
+      x,
+      function(p) {
+        dir.exists(p)
+      },
+      FUN.VALUE = TRUE,
+      USE.NAMES = use_names
+    )
 
   if (identical(dirs, logical(0))) {
     return(FALSE)

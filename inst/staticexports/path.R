@@ -52,7 +52,7 @@ is_file <- function(x,
   files <- file.exists(x)
 
   if (use_names) {
-    files <- setNames(files, x)
+    names(files) <- x
   }
   if (!include_dirs) {
     files <- files & !is_dir(x)
