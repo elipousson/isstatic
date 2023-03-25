@@ -52,17 +52,21 @@ file_path <- function(...,
 is_file <- function(x,
                     include_dirs = FALSE,
                     use_names = FALSE) {
+  if (is.null(x)) {
+    return(FALSE)
+  }
+
   files <- file.exists(x)
+
+  if (identical(files, logical(0))) {
+    return(FALSE)
+  }
 
   if (use_names) {
     names(files) <- x
   }
   if (!include_dirs) {
     files <- files & !is_dir(x)
-  }
-
-  if (identical(files, logical(0))) {
-    return(FALSE)
   }
 
   files
@@ -72,12 +76,14 @@ is_file <- function(x,
 #' @rdname is_file
 #' @export
 is_dir <- function(x, use_names = FALSE) {
+  if (is.null(x)) {
+    return(FALSE)
+  }
+
   dirs <-
     vapply(
       x,
-      function(p) {
-        dir.exists(p)
-      },
+      function(p) {dir.exists(p)},
       FUN.VALUE = TRUE,
       USE.NAMES = use_names
     )
