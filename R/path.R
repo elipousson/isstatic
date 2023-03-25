@@ -58,22 +58,33 @@ is_file <- function(x,
     files <- setNames(files, x)
   }
   if (!include_dirs) {
-    files <- files && !is_dir(x)
+    files <- files & !is_dir(x)
   }
 
-  files && !identical(x, character(0))
+  if (identical(files, logical(0))) {
+    return(FALSE)
+  }
+
+  files
 }
 
 #' @name is_dir
 #' @rdname is_file
 #' @export
 is_dir <- function(x, use_names = FALSE) {
-  vapply(
+  dirs <-
+    vapply(
     x,
     function(p) {
-      !identical(p, character(0)) && dir.exists(p)
+      dir.exists(p)
     },
     FUN.VALUE = TRUE,
     USE.NAMES = use_names
   )
+
+  if (identical(dirs, logical(0))) {
+    return(FALSE)
+  }
+
+  dirs
 }
