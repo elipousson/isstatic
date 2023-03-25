@@ -35,3 +35,45 @@ file_path <- function(...,
 
   path
 }
+
+#' Is x a file or directory?
+#'
+#' [is_file()] is a wrapper for [base::file.exists()] that allows the exclusion
+#' of directories and returning named vectors. [is_dir()] is a wrapper for
+#' [base::dir.exists()] that supports vector inputs rather than single strings.
+#' character(0) inputs return `FALSE`.
+#'
+#' @param include_dirs If `TRUE`, return `TRUE` for any value of x that is a
+#'   directory path. If `FALSE` (default), return `FALSE` for directory paths.
+#' @param use_names If `TRUE`, return a logical vector where the names match the
+#'   values of the input vector x. Defaults to `FALSE`.
+#' @rdname is_file
+#' @export
+is_file <- function(x,
+                    include_dirs = FALSE,
+                    use_names = FALSE) {
+  files <- file.exists(x)
+
+  if (use_names) {
+    files <- setNames(files, x)
+  }
+  if (!include_dirs) {
+    files <- files && !is_dir(x)
+  }
+
+  files && !identical(x, character(0))
+}
+
+#' @name is_dir
+#' @rdname is_file
+#' @export
+is_dir <- function(x, use_names = FALSE) {
+  vapply(
+    x,
+    function(p) {
+      !identical(p, character(0)) && dir.exists(p)
+    },
+    FUN.VALUE = TRUE,
+    USE.NAMES = use_names
+  )
+}
