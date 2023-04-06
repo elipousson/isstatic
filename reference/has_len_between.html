@@ -51,7 +51,11 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">has_len_between</span><span class="op">(</span><span class="va">x</span>, <span class="va">left</span>, <span class="va">right</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">has_len_between</span><span class="op">(</span><span class="va">x</span>, left <span class="op">=</span> <span class="fl">1</span>, right <span class="op">=</span> <span class="va">left</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">has_min_length</span><span class="op">(</span><span class="va">x</span>, <span class="va">min</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">has_max_length</span><span class="op">(</span><span class="va">x</span>, <span class="va">max</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -62,6 +66,14 @@
 
 <dt>left, right</dt>
 <dd><p>Min and max values to check if the length of x is between.</p></dd>
+
+
+<dt>min</dt>
+<dd><p>Min value used by <code>has_min_length()</code>.</p></dd>
+
+
+<dt>max</dt>
+<dd><p>Max value used by <code>has_max_length()</code>.</p></dd>
 
 </dl></div>
 
