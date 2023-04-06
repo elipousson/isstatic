@@ -5,10 +5,27 @@
 #'
 #' @param x Object to check.
 #' @param left,right Min and max values to check if the length of x is between.
+#' @param min Min value used by [isstatic::has_min_length()].
+#' @param max Max value used by [isstatic::has_max_length()].
+#' @name has_len_between
 #' @export
-has_len_between <- function(x, left, right) {
+has_len_between <- function(x, left = 1, right = left) {
   len <- length(x)
   (len >= left) && (len <= right)
+}
+
+#' @name has_min_length
+#' @rdname has_len_between
+#' @export
+has_min_length <- function(x, min) {
+  length(x) >= min
+}
+
+#' @name has_max_length
+#' @rdname has_len_between
+#' @export
+has_max_length <- function(x, max) {
+  length(x) <= max
 }
 
 #' Do two object have an identical length?

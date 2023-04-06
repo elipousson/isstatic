@@ -2,14 +2,24 @@
 % Please edit documentation in R/length.R
 \name{has_len_between}
 \alias{has_len_between}
+\alias{has_min_length}
+\alias{has_max_length}
 \title{Is the length of x between two values?}
 \usage{
-has_len_between(x, left, right)
+has_len_between(x, left = 1, right = left)
+
+has_min_length(x, min)
+
+has_max_length(x, max)
 }
 \arguments{
 \item{x}{Object to check.}
 
 \item{left, right}{Min and max values to check if the length of x is between.}
+
+\item{min}{Min value used by \code{\link[=has_min_length]{has_min_length()}}.}
+
+\item{max}{Max value used by \code{\link[=has_max_length]{has_max_length()}}.}
 }
 \description{
 Is the length of x between two values?
