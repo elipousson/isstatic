@@ -6,7 +6,7 @@
 #' @param x Object to be tested.
 #' @param what A character vector naming classes.
 #' @export
-is_list_of <- function(x, what = NULL) {
+is_list_all <- function(x, what = NULL) {
   is.list(x) && all(vapply(x, FUN = inherits, FUN.VALUE = TRUE, what))
 }
 
@@ -16,7 +16,7 @@ is_list_of <- function(x, what = NULL) {
 #' @param x Object to be tested.
 #' @export
 is_gg_list <- function(x) {
-  is_list_of(x, "gg")
+  is_list_all(x, "gg")
 }
 
 
@@ -25,5 +25,5 @@ is_gg_list <- function(x) {
 #' @param x Object to be tested.
 #' @export
 is_sf_list <- function(x) {
-  is_list_of(x, "sf")
+  is_list_all(x, "sf")
 }
