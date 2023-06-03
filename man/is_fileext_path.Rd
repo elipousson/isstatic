@@ -8,6 +8,7 @@
 \alias{is_rdata_fileext}
 \alias{is_rds_fileext}
 \alias{is_rda_fileext}
+\alias{is_zip_fileext}
 \title{Does this text end in the provided file extension?}
 \usage{
 is_fileext_path(x, fileext, ignore.case = TRUE)
@@ -23,6 +24,8 @@ is_rdata_fileext(x, ignore.case = TRUE)
 is_rds_fileext(x, ignore.case = TRUE)
 
 is_rda_fileext(x, ignore.case = TRUE)
+
+is_zip_fileext(x, ignore.case = TRUE)
 }
 \arguments{
 \item{x}{A character vector to check for matches, or an object which can be
@@ -48,6 +51,8 @@ Does this text end in the provided file extension?
 \link{is_rds_fileext}: Does this text end with a rds file extension?
 
 \link{is_rda_fileext}: Does this text end with a rda file extension?
+
+\link{is_zip_fileext}: Does this text end with a zip file extension?
 }
 \seealso{
 \code{\link[=has_fileext]{has_fileext()}}
