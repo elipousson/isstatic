@@ -46,4 +46,3 @@ is_none <- function(x, FUN, ...) {
 is_none_null <- function(x) {
   isFALSE(is_any_null(x))
 }
-

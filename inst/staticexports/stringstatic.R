@@ -29,14 +29,19 @@
 str_c <- function(..., sep = "", collapse = NULL) {
   stopifnot(
     "`sep` must be a single string, not a character vector." = length(sep) == 1,
-    "`collapse` must be a single string or `NULL`, not a character vector." =
-      length(collapse) == 1 || is.null(collapse)
+    "`collapse` must be a single string or `NULL`, not a character vector." = length(
+      collapse
+    ) ==
+      1 ||
+      is.null(collapse)
   )
 
   strings <- Filter(function(x) !is.null(x), list(...))
 
   if (length(strings) == 0 || any(lengths(strings) == 0)) {
-    if (length(collapse) == 0) return(character(0))
+    if (length(collapse) == 0) {
+      return(character(0))
+    }
     return("")
   }
 
@@ -73,7 +78,9 @@ str_c <- function(..., sep = "", collapse = NULL) {
 #' @return A logical vector.
 #' @noRd
 str_detect <- function(string, pattern, negate = FALSE) {
-  if (length(string) == 0 || length(pattern) == 0) return(logical(0))
+  if (length(string) == 0 || length(pattern) == 0) {
+    return(logical(0))
+  }
 
   is_fixed <- inherits(pattern, "stringr_fixed")
 
@@ -113,22 +120,31 @@ str_detect <- function(string, pattern, negate = FALSE) {
 #'   followed by one column for each capture group.
 #' @noRd
 str_extract <- function(string, pattern) {
-  if (length(string) == 0 || length(pattern) == 0) return(character(0))
+  if (length(string) == 0 || length(pattern) == 0) {
+    return(character(0))
+  }
 
   is_fixed <- inherits(pattern, "stringr_fixed")
 
   result <- Map(
     function(string, pattern) {
-      if (is.na(string) || is.na(pattern)) return(NA_character_)
+      if (is.na(string) || is.na(pattern)) {
+        return(NA_character_)
+      }
 
       regmatches(
         x = string,
         m = regexpr(
-          pattern = pattern, text = string, perl = !is_fixed, fixed = is_fixed
+          pattern = pattern,
+          text = string,
+          perl = !is_fixed,
+          fixed = is_fixed
         )
       )
     },
-    string, pattern, USE.NAMES = FALSE
+    string,
+    pattern,
+    USE.NAMES = FALSE
   )
 
   result[lengths(result) == 0] <- NA_character_
@@ -174,7 +190,11 @@ str_length <- function(string) {
 #' @return A character vector.
 #' @noRd
 str_pad <- function(
-    string, width, side = c("left", "right", "both"), pad = " ", use_width = TRUE
+  string,
+  width,
+  side = c("left", "right", "both"),
+  pad = " ",
+  use_width = TRUE
 ) {
   if (!is.numeric(width)) {
     return(string[NA])
@@ -224,10 +244,16 @@ str_pad <- function(
 #' @return A character vector.
 #' @noRd
 str_remove <- function(string, pattern) {
-  if (length(string) == 0 || length(pattern) == 0) return(character(0))
+  if (length(string) == 0 || length(pattern) == 0) {
+    return(character(0))
+  }
   is_fixed <- inherits(pattern, "stringr_fixed")
   Vectorize(sub, c("pattern", "x"), USE.NAMES = FALSE)(
-    pattern, replacement = "", x = string, perl = !is_fixed, fixed = is_fixed
+    pattern,
+    replacement = "",
+    x = string,
+    perl = !is_fixed,
+    fixed = is_fixed
   )
 }
 
@@ -269,7 +295,11 @@ str_replace <- function(string, pattern, replacement) {
   is_fixed <- inherits(pattern, "stringr_fixed")
 
   Vectorize(sub, c("pattern", "replacement", "x"), USE.NAMES = FALSE)(
-    pattern, replacement, x = string, perl = !is_fixed, fixed = is_fixed
+    pattern,
+    replacement,
+    x = string,
+    perl = !is_fixed,
+    fixed = is_fixed
   )
 }
 
@@ -327,7 +357,11 @@ str_replace_all <- function(string, pattern, replacement) {
   }
 
   Vectorize(gsub, c("pattern", "replacement", "x"), USE.NAMES = FALSE)(
-    pattern, replacement, x = string, perl = !is_fixed, fixed = is_fixed
+    pattern,
+    replacement,
+    x = string,
+    perl = !is_fixed,
+    fixed = is_fixed
   )
 }
 

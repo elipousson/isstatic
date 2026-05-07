@@ -10,12 +10,14 @@
 #'   and no additional strings are provided to .... If `FALSE`, stop if filename
 #'   and path are `NULL` and no additional strings are provided to ...
 #' @noRd
-file_path <- function(...,
-                      path = NULL,
-                      filename = NULL,
-                      fsep = .Platform$file.sep,
-                      allow_null = FALSE,
-                      call = parent.frame()) {
+file_path <- function(
+  ...,
+  path = NULL,
+  filename = NULL,
+  fsep = .Platform$file.sep,
+  allow_null = FALSE,
+  call = parent.frame()
+) {
   path <- str_c(..., path, filename, sep = fsep)
   path_has_null <- any(identical(path, character(0)))
 
@@ -46,9 +48,7 @@ file_path <- function(...,
 #'   values of the input vector x. Defaults to `FALSE`.
 #' @rdname is_file
 #' @noRd
-is_file <- function(x,
-                    include_dirs = FALSE,
-                    use_names = FALSE) {
+is_file <- function(x, include_dirs = FALSE, use_names = FALSE) {
   if (is.null(x)) {
     return(FALSE)
   }
@@ -80,7 +80,9 @@ is_dir <- function(x, use_names = FALSE) {
   dirs <-
     vapply(
       x,
-      function(p) {dir.exists(p)},
+      function(p) {
+        dir.exists(p)
+      },
       FUN.VALUE = TRUE,
       USE.NAMES = use_names
     )

@@ -57,17 +57,20 @@ is_blank <- function(x) {
 #' @inherit knitr::combine_words
 #' @returns A character string
 #' @noRd
-combine_words <- function(words,
-                          sep = ", ",
-                          and = " and ",
-                          before = "",
-                          after = before,
-                          oxford_comma = TRUE) {
+combine_words <- function(
+  words,
+  sep = ", ",
+  and = " and ",
+  before = "",
+  after = before,
+  oxford_comma = TRUE
+) {
   n <- length(words)
 
-  rs <- function (x) {
-    if (is.null(x))
+  rs <- function(x) {
+    if (is.null(x)) {
       x = as.character(x)
+    }
     x
   }
 

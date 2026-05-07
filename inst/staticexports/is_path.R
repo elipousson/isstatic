@@ -11,7 +11,8 @@ is_fileext_path <- function(x, fileext, ignore.case = TRUE) {
   grepl(
     paste0("\\.", paste0(fileext, collapse = "|"), "$(?!\\.)"),
     x,
-    ignore.case = ignore.case, perl = TRUE
+    ignore.case = ignore.case,
+    perl = TRUE
   )
 }
 
@@ -93,4 +94,3 @@ is_rda_fileext <- function(x, ignore.case = TRUE) {
 is_zip_fileext <- function(x, ignore.case = TRUE) {
   is_fileext_path(x, "zip", ignore.case)
 }
-

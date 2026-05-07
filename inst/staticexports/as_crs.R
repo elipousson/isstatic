@@ -1,4 +1,3 @@
-
 #' Coerce a sf, sfc, or bbox object to a coordinate reference system
 #'
 #' This function should be updated to support stars and terra objects.

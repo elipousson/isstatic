@@ -36,16 +36,18 @@
 #'   with an added column with a name matching the second value of the cols
 #'   parameter.
 #' @noRd
-as_numbered_labels <- function(x,
-                               labels = "arabic",
-                               start = NULL,
-                               suffix = NULL,
-                               base = 26,
-                               cols = "num_label",
-                               pad = NULL,
-                               side = "left",
-                               quiet = TRUE,
-                               call = parent.frame()) {
+as_numbered_labels <- function(
+  x,
+  labels = "arabic",
+  start = NULL,
+  suffix = NULL,
+  base = 26,
+  cols = "num_label",
+  pad = NULL,
+  side = "left",
+  quiet = TRUE,
+  call = parent.frame()
+) {
   if (is.data.frame(x)) {
     num_col <- cols
     x_col <- c(1:nrow(x))
@@ -58,7 +60,16 @@ as_numbered_labels <- function(x,
 
     x[[num_col]] <-
       as_numbered_labels(
-        x_col, labels, start, suffix, base, cols, pad, side, quiet, call
+        x_col,
+        labels,
+        start,
+        suffix,
+        base,
+        cols,
+        pad,
+        side,
+        quiet,
+        call
       )
 
     return(x)
@@ -76,7 +87,8 @@ as_numbered_labels <- function(x,
 
   labels <-
     match.arg(
-      labels, c("arabic", "alph", "Alph", "alpha", "Alpha", "roman", "Roman")
+      labels,
+      c("arabic", "alph", "Alph", "alpha", "Alpha", "roman", "Roman")
     )
 
   if (!is.integer(x)) {
@@ -86,15 +98,22 @@ as_numbered_labels <- function(x,
   x <- set_start_number(x, start, labels)
 
   num_labels <-
-    switch(labels,
+    switch(
+      labels,
       "arabic" = x,
-      "alph" = sapply(x, int_to_alpha,
+      "alph" = sapply(
+        x,
+        int_to_alpha,
         base = base,
-        dict = letters, quiet = quiet
+        dict = letters,
+        quiet = quiet
       ),
-      "alpha" = sapply(x, int_to_alpha,
+      "alpha" = sapply(
+        x,
+        int_to_alpha,
         base = base,
-        dict = letters, quiet = quiet
+        dict = letters,
+        quiet = quiet
       ),
       "Alph" = sapply(x, int_to_alpha, base = base, quiet = quiet),
       "Alpha" = sapply(x, int_to_alpha, base = base, quiet = quiet),
@@ -161,11 +180,13 @@ set_start_number <- function(x, start = NULL, labels = "arabic") {
 #' @returns An integer vector composed of objects between 1 and 26 with the same
 #'   length as x.
 #' @noRd
-int_to_alpha <- function(x,
-                         suffix = NULL,
-                         base = 26,
-                         dict = LETTERS,
-                         quiet = TRUE) {
+int_to_alpha <- function(
+  x,
+  suffix = NULL,
+  base = 26,
+  dict = LETTERS,
+  quiet = TRUE
+) {
   x <- as_integer(x, quiet)
 
   if (!is.numeric(base)) {
@@ -204,11 +225,13 @@ int_to_alpha <- function(x,
 #'   to improve error messages.
 #' @returns A length 1 integer between 1 and 26.
 #' @noRd
-alpha_to_int <- function(x,
-                         dict = LETTERS,
-                         n = 1,
-                         quiet = TRUE,
-                         call = parent.frame()) {
+alpha_to_int <- function(
+  x,
+  dict = LETTERS,
+  n = 1,
+  quiet = TRUE,
+  call = parent.frame()
+) {
   static_check_nchar(x, n, call = call)
   x[x %in% dict] <- seq_along(dict)[dict %in% x]
   as_integer(x, quiet)

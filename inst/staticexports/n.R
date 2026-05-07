@@ -16,4 +16,3 @@ str_n_freq <- function(string = NULL, n = NULL, decreasing = TRUE) {
   static_check_numeric(n)
   names(string)[1:n]
 }
-

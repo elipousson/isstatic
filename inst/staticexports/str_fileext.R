@@ -30,7 +30,9 @@ NULL
 #' @rdname str_fileext
 #' @noRd
 str_add_fileext <- function(string, fileext = NULL) {
-  if (is.null(fileext) || !is.null(fileext) && all(has_fileext(string, fileext))) {
+  if (
+    is.null(fileext) || !is.null(fileext) && all(has_fileext(string, fileext))
+  ) {
     return(string)
   }
 

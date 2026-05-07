@@ -57,8 +57,12 @@ static_check_nchar <- function(x, n = 1, ..., call = parent.frame()) {
   }
 
   message <- paste0(
-    "All objects in `x` must have ", n, plural_words(" character", n),
-    ", not ", message, "."
+    "All objects in `x` must have ",
+    n,
+    plural_words(" character", n),
+    ", not ",
+    message,
+    "."
   )
 
   static_check_if(
@@ -75,8 +79,12 @@ static_check_name <- function(x, name = NULL, call = parent.frame()) {
   static_check_if(
     condition = has_all_names(x, name),
     message = paste0(
-      "`x` must have ", plural_words("name", length(name), after = " "), name,
-      ", but ", combine_words(name[!(name %in% names(x))]), " are all missing."
+      "`x` must have ",
+      plural_words("name", length(name), after = " "),
+      name,
+      ", but ",
+      combine_words(name[!(name %in% names(x))]),
+      " are all missing."
     ),
     call = call
   )

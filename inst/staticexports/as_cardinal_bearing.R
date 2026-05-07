@@ -1,12 +1,22 @@
 cardinal_bearings <-
   c(
-    "N" = 0, "N" = 360, "E" = 90,
-    "S" = 180, "W" = 270,
-    "NE" = 45, "SE" = 135,
-    "SW" = 225, "NW" = 315,
-    "NNE" = 22.5, "ENE" = 67.5, "ESE" = 112.5,
-    "SSE" = 157.5, "SSW" = 202.5, "WSW" = 247.5,
-    "WNW" = 292.5, "NNW" = 337.5
+    "N" = 0,
+    "N" = 360,
+    "E" = 90,
+    "S" = 180,
+    "W" = 270,
+    "NE" = 45,
+    "SE" = 135,
+    "SW" = 225,
+    "NW" = 315,
+    "NNE" = 22.5,
+    "ENE" = 67.5,
+    "ESE" = 112.5,
+    "SSE" = 157.5,
+    "SSW" = 202.5,
+    "WSW" = 247.5,
+    "WNW" = 292.5,
+    "NNW" = 337.5
   )
 
 
@@ -21,9 +31,11 @@ cardinal_bearings <-
 #' @returns A named numeric vector with cardinal bearings (and wind names) or a
 #'   data.frame with an added column containing the cardinal bearings.
 #' @noRd
-as_cardinal_bearing <- function(x,
-                                winds = 8,
-                                cols = c("bearing", "cardinal_bearing")) {
+as_cardinal_bearing <- function(
+  x,
+  winds = 8,
+  cols = c("bearing", "cardinal_bearing")
+) {
   if (is.data.frame(x)) {
     static_check_name(x, cols[1])
     x[[cols[2]]] <- as_cardinal_bearing(x[[cols[1]]], winds)

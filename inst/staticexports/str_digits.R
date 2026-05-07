@@ -37,11 +37,13 @@ str_extract_digits <- function(string, pattern = "[0-9]+", side = NULL) {
 #' @rdname str_pad_digits
 #' @inheritParams stringstatic::str_replace
 #' @noRd
-str_replace_digits <- function(string,
-                               replacement,
-                               pad = "0",
-                               side = "left",
-                               width = NULL) {
+str_replace_digits <- function(
+  string,
+  replacement,
+  pad = "0",
+  side = "left",
+  width = NULL
+) {
   digits <- str_extract_digits(string)
 
   if (is.na(digits)) {
@@ -60,10 +62,11 @@ str_replace_digits <- function(string,
 #' @noRd
 digit_pattern <- function(pattern = "[0-9]+", side = NULL) {
   side <- match.arg(side, c("", "left", "right"))
-  switch(side,
-         "left" = paste0("^", pattern),
-         "right" = paste0(pattern, "$"),
-         pattern
+  switch(
+    side,
+    "left" = paste0("^", pattern),
+    "right" = paste0(pattern, "$"),
+    pattern
   )
 }
 

@@ -1,12 +1,14 @@
 #' Simple helper for pluralizing words
 #'
 #' @noRd
-plural_words <- function(words,
-                         n = 1,
-                         suffix = "s",
-                         before = "",
-                         after = "",
-                         replacement = NULL) {
+plural_words <- function(
+  words,
+  n = 1,
+  suffix = "s",
+  before = "",
+  after = "",
+  replacement = NULL
+) {
   words <- paste0(before, words, after)
 
   if (is.null(replacement)) {
