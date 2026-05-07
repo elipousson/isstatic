@@ -34,7 +34,7 @@ coerced by \code{\link[=as.character]{as.character()}} to a character vector.}
 \item{fileext}{A file extension to compare to x. Required. If a vector of
 multiple extensions are provided, returns \code{TRUE} for any match.}
 
-\item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
+\item{ignore.case}{logical. if \code{FALSE}, the pattern matching is \emph{case
       sensitive} and if \code{TRUE}, case is ignored during matching.}
 }
 \description{

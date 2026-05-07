@@ -13,7 +13,7 @@ coerced by \code{\link[=as.character]{as.character()}} to a character vector.}
 \item{filetype}{A file extension (or multiple file extensions) to compare to
 x. Required.}
 
-\item{ignore.case}{if \code{FALSE}, the pattern matching is \emph{case
+\item{ignore.case}{logical. if \code{FALSE}, the pattern matching is \emph{case
       sensitive} and if \code{TRUE}, case is ignored during matching.}
 }
 \description{

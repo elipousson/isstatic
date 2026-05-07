@@ -17,7 +17,8 @@ Short arguments are recycled to the length of the longest.
 Like most other R functions, missing values are "infectious":
 whenever a missing value is combined with another string
 the result will always be missing.
-Use \code{str_replace_na()} to convert \code{NA} to "NA"}
+Use \code{str_replace_na()} to convert \code{NA} to "NA"
+.}
 
 \item{sep}{String to insert between input vectors.}
 
