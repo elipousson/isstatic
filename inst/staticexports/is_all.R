@@ -11,7 +11,7 @@ is_all <- function(x, FUN, ...) {
   all(vapply(x, FUN, FUN.VALUE = TRUE, ...))
 }
 
-#' - [is_all_null()]: Are all items in a list or vector `NULL` values?
+#' - `is_all_null()`: Are all items in a list or vector `NULL` values?
 #'
 #' @name is_all_null
 #' @rdname is_all
@@ -20,7 +20,7 @@ is_all_null <- function(x) {
   is_all(x, is.null)
 }
 
-#' - [is_all_na()]: Are all items in a list or vector NA values?
+#' - `is_all_na()`: Are all items in a list or vector NA values?
 #'
 #' @name is_all_na
 #' @rdname is_all

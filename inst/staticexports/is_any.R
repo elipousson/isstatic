@@ -11,7 +11,7 @@ is_any <- function(x, FUN, ...) {
   any(vapply(x, FUN, FUN.VALUE = TRUE, ...))
 }
 
-#' - [is_any_null()]: Is any item in a list or vector a `NULL` value?
+#' - `is_any_null()`: Is any item in a list or vector a `NULL` value?
 #'
 #' @name is_any_null
 #' @rdname is_any
@@ -20,7 +20,7 @@ is_any_null <- function(x) {
   is_any(x, is.null)
 }
 
-#' - [is_any_na()]: Is any item in a list or vector a `NA` value?
+#' - `is_any_na()`: Is any item in a list or vector a `NA` value?
 #'
 #' @name is_any_na
 #' @rdname is_any
@@ -29,7 +29,7 @@ is_any_na <- function(x) {
   is_any(x, is.na)
 }
 
-#' - [is_none()]: Is no item in a list or vector return `TRUE` from a predicate function?
+#' - `is_none()`: Is no item in a list or vector return `TRUE` from a predicate function?
 #'
 #' @name is_none
 #' @rdname is_any
@@ -38,7 +38,7 @@ is_none <- function(x, FUN, ...) {
   isFALSE(is_any(x, FUN, ...))
 }
 
-#' - [is_none_null()]: Is no item in a list or vector is `NULL`?
+#' - `is_none_null()`: Is no item in a list or vector is `NULL`?
 #'
 #' @name is_none_null
 #' @rdname is_any
