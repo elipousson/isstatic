@@ -21,7 +21,7 @@ Adapted from the [stringr](https://stringr.tidyverse.org/) package.
 
   Like most other R functions, missing values are "infectious": whenever
   a missing value is combined with another string the result will always
-  be missing. Use `str_replace_na()` to convert `NA` to "NA" .
+  be missing. Use `str_replace_na()` to convert `NA` to "NA"
 
 - sep:
 
